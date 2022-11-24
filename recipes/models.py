@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 PUBLISHED_STATUS = ((0, "Draft"), (1, "Published"))
+CUISINE = ((0, "Unassignable"), (1, "European"), (2, "Asian"), (3, "Arabic"), (4, "African"), (5, "North-/Southamerican"))
 
 
 class Recipe(models.Model):
@@ -9,8 +10,10 @@ class Recipe(models.Model):
     slug = models.SlugField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    type = models.IntegerField(choices=CUISINE, null=False, blank=False, default=0)
     content = models.TextField()
     excerpt = models.TextField(blank=True)
+    vegetarian = models.BooleanField(default=False)
     status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
     bookmarks = models.ManyToManyField(User, related_name="recipe_bookmarks", blank=True)
 
