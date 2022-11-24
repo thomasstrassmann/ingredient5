@@ -1,0 +1,1 @@
+web: gunicorn ingredient5.wsgi
