@@ -1,5 +1,5 @@
 # Ingredient5
-## The cookbook app for the most delicious and simple dishes
+## The most delicious and simple dishes - with only 5 ingredients
 
 
 ![Overview of Ingredient5](./ "Overview of Ingredient5")
@@ -20,16 +20,38 @@
 
 
 ## Introduction 
+Ingredient5 is a django web app that is all about cooking. 
+In the app, users have the opportunity to choose and recreate delicious and simple dishes. 
+The special thing about the recipes is that each dish consists of 5 ingredients, it is easy to cook and yet particularly delicious. 
 
+
+So the goal of Ingredient5 is to make chefs of all kinds (whether beginners or professionals) with an empty fridge, look like star chefs.... And that with minimal effort!
+
+
+The application has various features / functions, which are explained in more detail in strategy and features.
 
 ## Preparation - UX and UXD
+As mentioned in the introduction, the app is aimed at a broad audience. Many people unfortunately suffer from lack of time and are not able to eat sensibly. Therefore, many people resort to supplements, unhealthy food (mostly fast food), or skip meals altogether. 
 
+Often not only the time to cook is missing, but also the time to even go shopping in the supermarket. Ingredient5 tries to fill this gap. Simple and delicious meals with a limited fridge are thus possible and excuses regarding unhealthy food should be a thing of the past.
 
 
 The **UXD - User Experience Design** was declared and described in advance and includes the 5 panels *strategy, scope, structure, skeleton and surface*. 
 
 ### Strategy 
+What makes Ingredient5 special? 
 
+The content:
+
+The simplicity of the recipes, which make dishes look complex. This makes all the recipes easy to implement and meets exactly the nerve of the time, in which no one has the time and leisure to prepare a delicious meal. In addition, the dishes are universal, that is, whether they are cooked to eat alone, served to friends, or directly appeal to a large family celebration.
+
+
+Associated functions in the app should also lead to a great and intuitive user experience. 
+The principles of good UX apply: simple navigation, user feedback, custom settings and a quick sense of achievement. 
+
+The app and its content is also culturally appropriate: it's aimed at cooking amateurs who don't yet know how to cook and need to cook, as well as experienced cooks looking for inspiration. No one is excluded. 
+
+To structure the content and make the data retrievable, there are different models, explained in detail in the scope section.
 
 ---
 ### Scope 
