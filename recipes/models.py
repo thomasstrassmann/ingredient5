@@ -6,7 +6,7 @@ PUBLISHED_STATUS = ((0, "Draft"), (1, "Published"))
 
 class Recipe(models.Model):
     title = models.CharField(max_length=180, unique=True)
-    slug = models.SlugField(max_length=180, unique=True)
+    slug = models.SlugField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -22,6 +22,7 @@ class Recipe(models.Model):
 
     def num_of_bookmarks(self):
         return self.bookmarks.count()
+
 
 class Comment(models.Model):
 
