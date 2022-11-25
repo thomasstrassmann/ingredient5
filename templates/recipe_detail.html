@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.created }}</p>
+</div>
+<div>
+    <img src="#" alt="Image of the recipe">
+</div>
+<p>
+    {{ recipe.content | safe }}
+</p>
+
+{% if user.is_authenticated %}
+<form action="{% url 'recipe_bookmarks' recipe.slug %}" method="POST">
+    {% csrf_token %}
+    {% if liked %}
+    <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
+
+    {% else %}
+    <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
+    {% endif %}
+    <span> {{ post.num_of_bookmarks }} </span>
+    {% endif %}
+</form>
+
+<div>
+    {% with comments.count as total %}
+    <strong><i class="far fa-comments"></i>
+        {{ total }}</strong>
+    {% endwith %}
+</div>
+
+<div>
+    <h3>Comments:</h3>
+    <div>
+        {% for comment in comments %}
+        <div>
+            <p>
+                {{ comment.username }}
+                <span>
+                    {{ comment.created }}
+                </span> wrote:
+            </p>
+            {{ comment.message }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
