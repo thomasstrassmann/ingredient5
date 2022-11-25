@@ -1,13 +1,54 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ingredient5 - star chef-like dishes with only 5 ingredients</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="{static 'css/style.css'}" />
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="{% url 'home' %}"></a>
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'recipes' %}">Recipes</a>
+          </li>
+          <li>
+            <a href="{% url 'cookbook' %}">My Cookbook</a>
+          </li>
+          <li>
+            <a href="{% url 'workshop' %}">Workshops</a>
+          </li>
+          <li>
+            <a href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li>
+            <a href="{% url 'account_login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <main class="flex-shrink-0 main-bg">
+      {% block content %}
+      {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Footer Placeholder</p>
+    </footer>
+  </body>
 </html>
