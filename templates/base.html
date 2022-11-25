@@ -18,7 +18,7 @@
           </li>
           {% if user.is_authenticated %}
           <li>
-            <a href="#">Recipes</a>
+            <a href="{% url 'recipes_list' %}">Recipes</a>
           </li>
           <li>
             <a href="#">My Cookbook</a>
