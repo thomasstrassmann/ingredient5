@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div>
     {% for recipe in recipe_list %}
     <div>
-        <img src="{% static 'images/{{recipe.title}}.jpg' %}">
+        <!-- <img src="{% static 'images/{{recipe.slug}}.jpg' %}"> -->
 
 
         <a href="{% url 'recipe_detail' recipe.slug  %}">
@@ -14,7 +15,9 @@
         </a>
         {% if recipe.vegetarian %}
             <img src="{% static 'images/vegetarian.jpg' %}">
+        {% endif %}
     </div>
+    {% endfor %}
 
 {% if is_paginated %}
 <nav aria-label="Navigation">

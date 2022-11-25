@@ -18,23 +18,23 @@
           </li>
           {% if user.is_authenticated %}
           <li>
-            <a href="{% url 'recipes' %}">Recipes</a>
+            <a href="#">Recipes</a>
           </li>
           <li>
-            <a href="{% url 'cookbook' %}">My Cookbook</a>
+            <a href="#">My Cookbook</a>
           </li>
           <li>
-            <a href="{% url 'workshop' %}">Workshops</a>
+            <a href="#">Workshops</a>
           </li>
           <li>
-            <a href="{% url 'account_logout' %}">Logout</a>
+            <a href="#">Logout</a>
           </li>
           {% else %}
           <li>
-            <a href="{% url 'account_signup' %}">Register</a>
+            <a href="#">Register</a>
           </li>
           <li>
-            <a href="{% url 'account_login' %}">Login</a>
+            <a href="#">Login</a>
           </li>
           {% endif %}
         </ul>
