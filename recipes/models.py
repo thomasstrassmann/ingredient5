@@ -31,7 +31,7 @@ class Comment(models.Model):
 
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="comments")
     username = models.CharField(max_length=50)
-    message = models.TextField()
+    message = models.TextField(null=False, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 

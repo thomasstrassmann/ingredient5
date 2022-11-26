@@ -14,6 +14,11 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'recipes.html')
 
+    def test_get_cookbook_list(self):
+        response = self.client.get('/cookbook/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'cookbook.html')
+
     def test_get_recipe_details(self):
         recipe = Recipe.objects.create(
             title='test', slug='test', status=1,
