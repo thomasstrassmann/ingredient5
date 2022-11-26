@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>My Cookbook</h1>
+<div>
+    {% for recipe in recipe_list %}
+    <div>
+        <!-- <img src="{% static 'images/{{recipe.slug}}.jpg' %}"> -->
+
+
+        <a href="{% url 'recipe_detail' recipe.slug  %}">
+            <h3>{{ recipe.title }}</h3>
+            <p>{{ recipe.type }} <p>
+            <p>{{ recipe.excerpt }}</p>
+        </a>
+        {% if recipe.vegetarian %}
+            <img src="{% static 'images/vegetarian.jpg' %}">
+        {% endif %}
+    </div>
+    {% endfor %}
+
+{% if is_paginated %}
+<nav aria-label="Navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+</div>
+{%endblock%}

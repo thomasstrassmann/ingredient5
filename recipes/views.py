@@ -72,6 +72,13 @@ class RecipeDetail(View):
         )
 
 
+class CookbookList(generic.ListView):
+    model = Recipe
+    queryset = Recipe.objects.filter(bookmarks=True).order_by('-created')
+    template_name = 'cookbook.html'
+    paginate_by = 5
+
+
 class RecipeBookmark(View):
 
     def post(self, request, slug, *args, **kwargs):
