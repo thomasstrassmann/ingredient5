@@ -1,56 +1,67 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div>
-    <h1>{{ recipe.title }}</h1>
-    <p>{{ recipe.type }}</p>
-    {% if recipe.vegetarian %}
-    <p>Vegetarian</p>
-    {% endif %}
-    <p>{{ recipe.created }}</p>
+  <h1>{{ recipe.title }}</h1>
+  <p>{{ recipe.type }}</p>
+  {% if recipe.vegetarian %}
+  <p>Vegetarian</p>
+  {% endif %}
+  <p>{{ recipe.created }}</p>
 </div>
 <div>
-    <img src="#" alt="Image of the recipe">
+  <img src="#" alt="Image of the recipe" />
 </div>
-<p>
-    {{ recipe.content | safe }}
-</p>
+<p>{{ recipe.content | safe }}</p>
 
 {% if user.is_authenticated %}
 <form action="#" method="POST">
-    {% csrf_token %}
-    {% if liked %}
-    <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
+  {% csrf_token %} {% if liked %}
+  <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
 
-    {% else %}
-    <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
-    {% endif %}
-    <span> {{ recipe.num_of_bookmarks }} </span>
-    {% endif %}
+  {% else %}
+  <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
+  {% endif %}
+  <span> {{ recipe.num_of_bookmarks }} </span>
+  {% endif %}
 </form>
 
 <div>
-    {% with comments.count as total %}
-    <strong><i class="far fa-comments"></i>
-        {{ total }}</strong>
-    {% endwith %}
+  {% with comments.count as total %}
+  <strong><i class="far fa-comments"></i> {{ total }}</strong>
+  {% endwith %}
 </div>
 
 <div>
-    <h3>Comments:</h3>
+  <h3>Comments:</h3>
+  <div>
+    {% for comment in comments %}
     <div>
-        {% for comment in comments %}
-        <div>
-            <p>
-                {{ comment.username }}
-                <span>
-                    {{ comment.created }}
-                </span> wrote:
-            </p>
-            {{ comment.message }}
-        </div>
-        {% endfor %}
+      <p>
+        {{ comment.username }}
+        <span> {{ comment.created }} </span> wrote:
+      </p>
+      {{ comment.message }}
     </div>
+    {% endfor %}
+  </div>
 </div>
 
+<div>
+  {% if commented %}
+  <div>
+    <p>
+      We are currently checking your comment, please wait a few minutes for
+      approval!
+    </p>
+  </div>
+  {% else %} {% if user.is_authenticated %}
+
+  <h3>Post your comment right here:</h3>
+  <p>{{ user.username }} says:</p>
+  <form method="post">
+    {{ comment_form }} {% csrf_token %}
+    <button type="submit">Submit</button>
+  </form>
+  {% endif %} 
+  {% endif %}
+</div>
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Recipe, Comment
+from .forms import CommentForm
 
 
 def get_index(request):
@@ -31,6 +32,39 @@ class RecipeDetail(View):
                 "recipe": recipe,
                 "type": type,
                 "comments": comments,
+                "comment_form": CommentForm(),
+                "commented": False,
+                "vegetarian": vegetarian,
+                "bookmarked": bookmarked,
+            }
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        comments = recipe.comments.filter(approved=True).order_by('created')
+        vegetarian = recipe.vegetarian
+        type = recipe.type
+        bookmarked = False
+        if recipe.bookmarks.filter(id=self.request.user.id).exists():
+            bookmarked = True
+
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.username = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.save()
+        else:
+            comment_form = CommentForm()
+        
+        return render(
+            request, "recipe_detail.html", {
+                "recipe": recipe,
+                "type": type,
+                "comments": comments,
+                "commented": True,
+                "comment_form": CommentForm(),
                 "vegetarian": vegetarian,
                 "bookmarked": bookmarked,
             }
