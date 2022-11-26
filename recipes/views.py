@@ -20,6 +20,8 @@ class RecipeDetail(View):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created')
+        vegetarian = recipe.vegetarian
+        type = recipe.type
         bookmarked = False
         if recipe.bookmarks.filter(id=self.request.user.id).exists():
             bookmarked = True
@@ -27,7 +29,9 @@ class RecipeDetail(View):
         return render(
             request, "recipe_detail.html", {
                 "recipe": recipe,
+                "type": type,
                 "comments": comments,
+                "vegetarian": vegetarian,
                 "bookmarked": bookmarked,
             }
         )

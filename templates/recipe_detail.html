@@ -3,6 +3,10 @@
 {% block content %}
 <div>
     <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.type }}</p>
+    {% if recipe.vegetarian %}
+    <p>Vegetarian</p>
+    {% endif %}
     <p>{{ recipe.created }}</p>
 </div>
 <div>
@@ -13,7 +17,7 @@
 </p>
 
 {% if user.is_authenticated %}
-<form action="{% url 'recipe_bookmarks' recipe.slug %}" method="POST">
+<form action="#" method="POST">
     {% csrf_token %}
     {% if liked %}
     <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
