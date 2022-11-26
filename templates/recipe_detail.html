@@ -13,12 +13,12 @@
 <p>{{ recipe.content | safe }}</p>
 
 {% if user.is_authenticated %}
-<form action="#" method="POST">
-  {% csrf_token %} {% if liked %}
-  <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
-
+<form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
+  {% csrf_token %} 
+  {% if liked %}
+  <button type="submit" name="recipe_id" value="{{recipe.slug}}">Bookmarked FA</button>
   {% else %}
-  <button type="submit" name="recipe_id" value="{{recipe.slug}}"></button>
+  <button type="submit" name="recipe_id" value="{{recipe.slug}}">Not bookmarked</button>
   {% endif %}
   <span> {{ recipe.num_of_bookmarks }} </span>
   {% endif %}

@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Recipe, Comment
 from .forms import CommentForm
@@ -69,3 +70,15 @@ class RecipeDetail(View):
                 "bookmarked": bookmarked,
             }
         )
+
+
+class RecipeBookmark(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        if recipe.bookmarks.filter(id=request.user.id).exists():
+            recipe.bookmarks.remove(request.user)
+        else:
+            recipe.bookmarks.add(request.user)
+
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
