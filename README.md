@@ -55,21 +55,59 @@ To structure the content and make the data retrievable, there are different mode
 
 ---
 ### Scope 
-What is feasible? 
 
+To describe the scope of the Ingridient5 app, the key features will be discussed first. 
 
+Users should be able to log in with a username and thereby create a personal account, which is necessary for the personalizing of the content. 
+However, this also means that the other content is behind this authentication hurdle. Recipes cannot be viewed without an account, which should lead to a higher registration rate.
 
-What is not feasible? 
+After authentication, further functions are available to the user. For example, they can actively search for new recipes (via django generic ListView) and view the recipes in detail. An own cookbook with favorite recipes can then be created via a bookmark function. 
+
+Furthermore, users have the option of registering for a virtual cooking class. All that is required is to select an email address, date and time (date and time specified in each case). Afterwards, the user automatically receives a confirmation email with an access link and the admin receives an overview of the participants in the backend. 
+
+What can not be implemented within the project, just because of lack of time? 
+* Users will not have the possibility to reset the password at first.
+* Excessive filtering options in the recipe overview will be reduced to a minimum for the time being.
+* The number of recipes will probably be 20 - 25 maximum. 
+* Users will not yet be able to pay online, but a fictitious invoice will be included in the mail. 
+
+The scope, in terms of content, will stretch over 9 HTML pages.
+* index.html
+* signup.html
+* login.html
+* logout.html
+* recipes.html
+* recipes_detail.html
+* cookbook.html
+* workshop.html 
+* 404 page
+
+Here, further pages are omitted too due to time constraints. 
+How the individual pages are composed is outlined in the structure section below. 
 
 --- 
 ### Structure 
 
+The structure of the app is kept very simple and is illustrated here for the sake of completeness. This results in a simple, clear and intuitive navigation for the user. 
+
+![Structure of Ingredient5](./static/img/documentation/structure_ingredient5.png "Structure of Ingredient5")
 
 ---
 ### Skeleton 
 
+In order to implement the pages safer, faster and more efficiently, wireframe models were created in advance. Excluded from this are the pages login, signup, logout and the 404page, as these are simple pages with either a form element or a feedback display. Wireframe models are therefore only created for more complex pages. 
 
-You can click [here](./assets/uxd/wireframe.png) to take a look at the wireframes.
+The models for the index, recipes, recipes_list, cookbook, workshop are listed down below. 
+
+![Wireframe of index page](./static/img/documentation/wireframe_index.png "Wireframe of index page")
+
+![Wireframe of recipes page](./static/img/documentation/wireframe_recipes.png "Wireframe of recipes page")
+
+![Wireframe of recipes detail page](./static/img/documentation/wireframe_recipes_detail.png "Wireframe of recipes detail page")
+
+![Wireframe of cookbook](./static/img/documentation/wireframe_cookbook.png "Wireframe of cookbook")
+
+![Wireframe of workshops](./static/img/documentation/wireframe_workshop.png "Wireframe of workshops")
 
 ---
 ### Surface
