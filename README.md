@@ -112,10 +112,10 @@ The models for the index, recipes, recipes_list, cookbook, workshop are listed d
 ---
 ### Surface
 
-![Color palette](./ "Color palette")
+![Color palette](./static/img/documentation/color_palette.png "Color palette")
 
 
-![Logo](./ "Logo")
+![Logo](./static/img/documentation/logo_scaled.png "Logo")
 
 Google Fonts was used for the typography. The font is used for headlines and titles, the font is used for everything else.
 
