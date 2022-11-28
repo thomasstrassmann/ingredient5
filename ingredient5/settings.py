@@ -92,16 +92,16 @@ WSGI_APPLICATION = 'ingredient5.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 # Password validation
@@ -140,9 +140,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/' 
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
