@@ -112,14 +112,32 @@ The models for the index, recipes, recipes_list, cookbook, workshop are listed d
 ---
 ### Surface
 
+In terms of visual language, the main points that remain are colors, logo and fonts.
+The color palette consists of the main color #38FA46 and some according compound colors. Down below you can see an abstract of the Adobe Color Wheel.
+
 ![Color palette](./static/img/documentation/color_palette.png "Color palette")
 
+The app logo was created with the Adobe Express. The corresponding green should reflect the targeted healthy diet. 
 
 ![Logo](./static/img/documentation/logo_scaled.png "Logo")
 
-Google Fonts was used for the typography. The font is used for headlines and titles, the font is used for everything else.
+Google Fonts was used for the typography and the icons. The font "Bebas Neue" is used for headlines and titles, the font "Ubuntu" is used for everything else.
 
 ## Agile Development
+
+The entire project was developed in an agile manner. Particularly noteworthy is the sprint board (git hub project), on which the user stories and their status were recorded. For better traceability, the project was set to public. 
+
+The user stories developed in advance were: 
+* As an admin (employee of ingredient5), I would like to create recipes so that the users can explore the recipes.
+* As an admin (employee of ingredient5), i would like to approve comments so that no inappropiate comments are on the site.
+* As a site user, I want the ability to create an account, so that I can comment on recipes and create my own personal cooking book.
+* As a site user, I want to see the recipes with the according comments, so that I can get new cooking ideas.
+* As a user, I want to be able to comment on a recipe so that I can give feedback to the author and discuss it with other members.
+* As a site user, I want to have a cookbook of my favorite recipes, so that I do not have to search them every time again.
+* As a user, I want the ability to like (and at the same time bookmark) my favorite recipes so that i can store them in my own virtual cooking book.
+* As a user, I want the ability to book (and cancel) a virtual cooking-workshop, so that I can enhance my cooking skills and interact with other people.
+
+![Agile development](./static/img/documentation/agile_development.png "Agile development")
 
 
 
