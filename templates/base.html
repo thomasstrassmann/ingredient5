@@ -27,46 +27,46 @@
         {% if user.is_authenticated %}
         <li>
           <span>
-          <a href="{% url 'recipes_list' %}" aria-label="Recipes list">Recipes
-          <img src="{% static 'img/icons/menu.svg' %}" alt="Recipes"/></a> 
-        </span>
+            <a href="{% url 'recipes_list' %}" aria-label="Recipes list">Recipes
+              <img src="{% static 'img/icons/menu.svg' %}" alt="Recipes" /></a>
+          </span>
         </li>
         <li>
           <span>
-          <a href="{% url 'cookbook_list' %}" aria-label="My cookbook">Cookbook
-          <img src="{% static 'img/icons/menu_book.svg' %}" alt="Cookbook"/></a> 
-        </span>
+            <a href="{% url 'cookbook_list' %}" aria-label="My cookbook">Cookbook
+              <img src="{% static 'img/icons/menu_book.svg' %}" alt="Cookbook" /></a>
+          </span>
         </li>
         <li>
           <span>
-          <a href="{% url 'workshop_list'%}" aria-label="My workshops">Workshops
-          <img src="{% static 'img/icons/school.svg' %}" alt="Workshop"/></a> 
-        </span>
+            <a href="{% url 'workshop_list'%}" aria-label="My workshops">Workshops
+              <img src="{% static 'img/icons/school.svg' %}" alt="Workshop" /></a>
+          </span>
         </li>
         <li>
           <span>
-          <a href="{% url 'account_logout' %}" aria-label="Logout">Logout
-          <img src="{% static 'img/icons/logout.svg' %}" alt="Logout"/></a>  
-        </span>
+            <a href="{% url 'account_logout' %}" aria-label="Logout">Logout
+              <img src="{% static 'img/icons/logout.svg' %}" alt="Logout" /></a>
+          </span>
         </li>
         {% else %}
         <li>
           <span>
-          <a href="{% url 'account_signup' %}" aria-label="Sign up for Ingredients">Sign up
-          <img src="{% static 'img/icons/how_to_reg.svg' %}" alt="Sign up right here!"/></a>
-        </span>
+            <a href="{% url 'account_signup' %}" aria-label="Sign up for Ingredients">Sign up
+              <img src="{% static 'img/icons/how_to_reg.svg' %}" alt="Sign up right here!" /></a>
+          </span>
         </li>
         <li>
           <span>
-          <a href="{% url 'account_login' %}" aria-label="Login">Login
-          <img src="{% static 'img/icons/login.svg' %}" alt="Login here!"/></a>
-        </span>
+            <a href="{% url 'account_login' %}" aria-label="Login">Login
+              <img src="{% static 'img/icons/login.svg' %}" alt="Login here!" /></a>
+          </span>
         </li>
         {% endif %}
       </ul>
       <div class="hamburger">
         <a href="#" aria-label="Menu">
-          <img src="{% static 'img/icons/hamburger.png' %}" alt="Menu"/></a>
+          <img src="{% static 'img/icons/hamburger.png' %}" alt="Menu" /></a>
       </div>
     </nav>
   </header>
@@ -76,7 +76,26 @@
   </main>
 
   <footer>
-    <p>Footer Placeholder</p>
+    <div class="footer-infos">
+      <a href="#" aria-label="Our values">Our values</a>
+      <a href="#" aria-label="Our values">Our mission</a>
+      <a href="#" aria-label="Our values">Working at Ingredients</a>
+    </div>
+
+    <div class="footer-infos">
+      <p>Visit us on:</p>
+      <a href="#" aria-label="Visit us on Facebook">Facebook</a>
+      <a href="#" aria-label="Visit us on Twitter">Twitter</a>
+      <a href="#" aria-label="Visit us on Instagram">Instagram</a>
+    </div>
+
+    <div class="footer-infos">
+      <div class="footer-logo">
+        <a href="{% url 'home' %}" aria-label="Ingredients Homepage">
+          <img src="{% static 'img/final-logo.png' %}" alt="Ingredients logo" />
+        </a>
+      </div>
+    </div>
   </footer>
 </body>
 
