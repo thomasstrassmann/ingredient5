@@ -1,6 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<h1 class="headline">Hello and welcome to Ingredients!</h1>
-<p>Placeholder for index page</p>
+<section id="hero" aria-label="hero section">
+    <div id="hero-img" style="background-image: url('{% static 'img/hero.jpg' %}')">
+        <div class="hero-filter hero-effect">
+            <div id="hero-text">
+                <h1>Ingredients</h1>
+                <p>The most delicous meals with only 5 ingredients!</p>
+            </div>
+        </div>
+    </div>
+</section>
+<h2 class="headline">Hello and welcome to Ingredients!</h1>
 {%endblock%}

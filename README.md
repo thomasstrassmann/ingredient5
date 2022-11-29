@@ -119,7 +119,7 @@ The color palette consists of the main color #38FA46 and some according compound
 
 The app logo was created with the Adobe Express. The corresponding green should reflect the targeted healthy diet. 
 
-![Logo](./static/img/documentation/logo_scaled.png "Logo")
+![Logo](./static/img/documentation/final-logo.png "Logo")
 
 Google Fonts was used for the typography and the icons. The font "Bebas Neue" is used for headlines and titles, the font "Ubuntu" is used for everything else.
 

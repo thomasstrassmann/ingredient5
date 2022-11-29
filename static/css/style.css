@@ -20,7 +20,7 @@ header {
     width: 100%;
     height: 12vh;
     background-color: white;
-    border-bottom: 2px solid #38FA46;
+    border-bottom: 4px solid #38FA46;
     display:flex;
     align-items: center;
     gap: 30%;
@@ -36,6 +36,8 @@ header {
 .logo-container img {
     width: 100%;
 }
+
+/* Nav bar inspired by Miguel Nunez, source: https://www.youtube.com/watch?v=flItyHiDm7E) */
 
 .navbar {
     min-height: 2%;
@@ -165,12 +167,89 @@ header img {
 
 main {
     position: relative;
-    top: 12vh;
 }
+
+/* Index page */
+
+#hero {
+    top: 12vh;
+    width: 100%;
+    height: 88vh;
+    position: relative;
+    border-bottom: 4px solid #38FA46;
+}
+
+/* Resource: https://unsplash.com/photos/gmo6Ok9G0U8 Photo by: adilsphotography */
+#hero-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-clip: padding-box;
+    visibility: visible;
+}
+
+#hero-text {
+    font-size: 5vw;
+    color: #38FA46;
+    text-align: center;
+    position: relative;
+    top: 12vh;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#hero-text h1, p {
+    margin: 1%;
+}
+
+/* Backdrop filter effect for hero image on all devices */
+
+.hero-filter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: grayscale(100%);
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.hero-effect {
+    animation: 3.5s ease-in 1 forwards brightness;
+    -webkit-animation: 3.5s ease-in 1 forwards brightness;
+    -moz-animation: 3.5s ease-in 1 forwards brightness;
+    -o-animation: 3.5s ease-in 1 forwards brightness;
+    -ms-animation: 3.5s ease-in 1 forwards brightness;
+}
+
+@keyframes brightness {
+    100% {backdrop-filter: grayscale(1%);}
+}
+
+@-webkit-keyframes brightness {
+    100% {backdrop-filter: grayscale(1%);}
+}
+
+@-moz-keyframes brightness {
+    100% {backdrop-filter: grayscale(1%);}
+}
+
+@-o-keyframes brightness {
+    100% {backdrop-filter: grayscale(1%);}
+}
+
+@-ms-keyframes brightness {
+    100% {backdrop-filter: grayscale(1%);}
+}
+
 
 .headline {
     margin: 0;
     position: relative;
+    top: 12vh;
     text-align: center;
     padding: 5%;
 }
