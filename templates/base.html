@@ -1,56 +1,83 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu&display=swap" rel="stylesheet">
-    <title>Ingredient5 - star chef-like dishes with only 5 ingredients</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-  </head>
-  <body>
-    <nav>
-      <div>
-        <a href="{% url 'home' %}"><img src="{% static 'img/logo3_scaled.png' %}"></a>
-        <ul>
-          <li>
-            <a href="{% url 'home' %}">Home</a>
-          </li>
-          {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'recipes_list' %}">Recipes</a>
-          </li>
-          <li>
-            <a href="{% url 'cookbook_list' %}">My Cookbook</a>
-          </li>
-          <li>
-            <a href="{% url 'workshop_list'%}">Workshops</a>
-          </li>
-          <li>
-            <a href="{% url 'account_logout' %}">Logout</a>
-          </li>
-          {% else %}
-          <li>
-            <a href="{% url 'account_signup' %}">Register</a>
-          </li>
-          <li>
-            <a href="{% url 'account_login' %}">Login</a>
-          </li>
-          {% endif %}
-        </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu&display=swap" rel="stylesheet" />
+  <title>Ingredient5 - star chef-like dishes with only 5 ingredients</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+  <script src="{% static 'js/hamburger.js' %}" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="{% url 'home' %}" aria-label="Ingredients Homepage">
+          <img src="{% static './img/logo_scaled.png' %}" alt="Ingredients logo" />
+        </a>
+      </div>
+
+      <ul class="nav-menu">
+        {% if user.is_authenticated %}
+        <li>
+          <span>
+          <a href="{% url 'recipes_list' %}" aria-label="Recipes list">Recipes
+          <img src="{% static 'img/icons/menu.svg' %}" alt="Recipes"/></a> 
+        </span>
+        </li>
+        <li>
+          <span>
+          <a href="{% url 'cookbook_list' %}" aria-label="My cookbook">Cookbook
+          <img src="{% static 'img/icons/menu_book.svg' %}" alt="Cookbook"/></a> 
+        </span>
+        </li>
+        <li>
+          <span>
+          <a href="{% url 'workshop_list'%}" aria-label="My workshops">Workshops
+          <img src="{% static 'img/icons/school.svg' %}" alt="Workshop"/></a> 
+        </span>
+        </li>
+        <li>
+          <span>
+          <a href="{% url 'account_logout' %}" aria-label="Logout">Logout
+          <img src="{% static 'img/icons/logout.svg' %}" alt="Logout"/></a>  
+        </span>
+        </li>
+        {% else %}
+        <li>
+          <span>
+          <a href="{% url 'account_signup' %}" aria-label="Sign up for Ingredients">Sign up
+          <img src="{% static 'img/icons/how_to_reg.svg' %}" alt="Sign up right here!"/></a>
+        </span>
+        </li>
+        <li>
+          <span>
+          <a href="{% url 'account_login' %}" aria-label="Login">Login
+          <img src="{% static 'img/icons/login.svg' %}" alt="Login here!"/></a>
+        </span>
+        </li>
+        {% endif %}
+      </ul>
+      <div class="hamburger">
+        <a href="#" aria-label="Menu">
+          <img src="{% static 'img/icons/hamburger.png' %}" alt="Menu"/></a>
       </div>
     </nav>
+  </header>
 
-    <main class="flex-shrink-0 main-bg">
-      {% block content %}
-      {% endblock content %}
-    </main>
+  <main>{% block content %}
+    {% endblock content %}
+  </main>
 
-    <footer>
-        <p>Footer Placeholder</p>
-    </footer>
-  </body>
+  <footer>
+    <p>Footer Placeholder</p>
+  </footer>
+</body>
+
 </html>

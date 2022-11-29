@@ -4,9 +4,173 @@ font-family: 'Ubuntu', sans-serif;
 */
 
 body {
-    background-color: aquamarine;
+    font-family: 'Ubuntu', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    color: black;
+    font-size: 2vw;
 }
 
-h1 {
-    color: red;
+h1, h2, h3 {
+    font-family: 'Bebas Neue', cursive;    
+}
+
+header {
+    width: 100%;
+    height: 12vh;
+    background-color: white;
+    border-bottom: 2px solid #38FA46;
+    display:flex;
+    align-items: center;
+    gap: 30%;
+    position: fixed;
+    z-index: 3;
+}
+
+.logo-container {
+    width: 15%;
+    margin-left: 5%;
+}
+
+.logo-container img {
+    width: 100%;
+}
+
+.navbar {
+    min-height: 2%;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15%;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    width: 100%;
+    margin:0;
+}
+
+.nav-menu img {
+    width: 2vw;
+}
+
+.nav-item {
+    margin: 0 2%;
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-link {
+    width: 100%;
+    padding: 0 2%;
+}
+
+ header li {
+    list-style: none;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    padding: 0;
+}
+
+header a {
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+}
+
+header a:active, a:visited {
+    color:black
+}
+
+
+header img {
+    max-width: 200px;
+}
+
+
+@media (max-width:768px){
+    body {
+        font-size: 3.5vw;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -250%;
+        top: 12vh;
+        gap: 10vh;
+        flex-direction: column;
+        background-color: 	rgba(24,199,135, 0.9);
+        width: 100%;
+        text-align: center;
+        transition: 0.2s;
+        z-index: 5;
+        padding-bottom: 20px;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        margin: 0;
+    }
+
+    ul.nav-menu.active {
+        padding: 20px;
+    }
+
+    header a, a:active, a:visited  {
+        margin: 35%
+    }
+
+    .navbar {
+        gap: 50%;
+    }
+
+    .logo-container {
+        width: 20%;
+    }
+
+    .nav-menu img {
+        width: 3vw;
+    }
+
+    span {
+        display: inline-block;
+    }
+}
+
+main {
+    position: relative;
+    top: 12vh;
+}
+
+.headline {
+    margin: 0;
+    position: relative;
+    text-align: center;
+    padding: 5%;
 }
