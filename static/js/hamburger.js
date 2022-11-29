@@ -1,3 +1,5 @@
+/* Nav bar inspired by Miguel Nunez, source: https://www.youtube.com/watch?v=flItyHiDm7E) */
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
