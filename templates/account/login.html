@@ -8,10 +8,11 @@
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
+<section class="form">
+<h1>Sign In and discover the power of simplicity!</h1>
 
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<p>You do not have an account yet? What a pity!</p> 
+<p>Then please <a href="{{ signup_url }}">sign up here</a> first.</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
@@ -21,5 +22,6 @@
   {% endif %}
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
+</section>
 
 {% endblock %}
