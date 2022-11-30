@@ -12,14 +12,45 @@
         </div>
     </div>
 </section>
-<h2 class="headline">Hello and welcome to Ingredients!</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<section class="introduction">
+    <article class="headline">
+        <h2>The most simple, delicious and ingenious dishes</h1>
+            <p>that will make you look like a star chef!</p>
+    </article>
+
+    <article class="teaser">
+        <div class="teaser-text">
+            <p><span class="text-center">What drives us at Ingredients?</span>
+                We want to deliver the best cooking experience to your home, instead of cheap fast food!
+                We believe and know that you can prepare great dishes without much effort and without a full fridge.
+                And we show you how! With creative recipes, or in a virtual cooking class,
+                you'll learn everything it takes to wow your partner, friends or family.
+                Or to simply do something good for yourself! Register now and discover
+                the world of fast and delicious cuisine.</p>
+        </div>
+        <div>
+            <!-- Photo by Jimmy Dean: https://unsplash.com/photos/my1mDMraGf0 -->
+            <img src="{% static 'img/teaser.jpg' %}" alt="A couple cooking" />
+        </div>
+    </article>
+
+    <article class="banner-login">
+        <!-- Photo by Pablo Merchán Montes: https://unsplash.com/photos/Orz90t6o0e4 -->
+        <div class="background-banner" style="background-image: url('{% static 'img/banner-login.jpg' %}')">
+            <div class="login-container">
+                <a href="{% url 'account_login' %}" aria-label="Login page">Lets's cook!</a>
+            </div>
+        </div>
+    </article>
+
+
+</section>
+
+
+
+
+</section>
+
 
 {%endblock%}
