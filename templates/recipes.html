@@ -1,13 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div>
+<h1>The most delicious recipes are just waiting for you!</h1>
+<p>Explore the list or filter by cuisine.</p>
+
     {% for recipe in recipe_list %}
     <div>
         <a href="{% url 'recipe_detail' recipe.slug  %}">
-            <h3>{{ recipe.title }}</h3>
+            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" alt="Photo of the meal" />
+            <h3>{{ recipe.title }}</h3></a>
             <p>{{ recipe.type }} <p>
-            <p>{{ recipe.excerpt }}</p>
         </a>
         {% if recipe.vegetarian %}
             <img src="#">
@@ -27,5 +30,4 @@
     </ul>
 </nav>
 {% endif %}
-</div>
 {%endblock%}
