@@ -15,6 +15,15 @@ class RecipeList(generic.ListView):
     template_name = 'recipes.html'
     paginate_by = 5
 
+    def get_queryset(self):
+        filter_val = self.request.GET.get('filter', '0')
+        if filter_val == '0':
+            queryset = Recipe.objects.filter(status=1).order_by('-created')
+            return queryset
+        else:
+            new_context = Recipe.objects.filter(type=filter_val)
+            return new_context
+
 
 class RecipeDetail(View):
 
