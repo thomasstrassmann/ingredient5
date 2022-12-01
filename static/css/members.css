@@ -57,6 +57,28 @@ colors:
     width: 2.5vw;
 }
 
+.form-category {
+    margin-top: 2%;
+}
+
+.select {
+    width: 15%;
+    border: 2px solid #a218c7;
+    font-size: 2vw;
+    font-family: 'Ubuntu';
+}
+
+.select-submit {
+    background-color: #a218c7;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 2vw;
+    padding: 0 2%;
+    font-family: 'Ubuntu';
+    margin: 0 2%;
+}
+
 @media (max-width:768px) {
     .recipe-excerpt {
         height: 55vw;

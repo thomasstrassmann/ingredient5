@@ -5,9 +5,9 @@
 <section class="recipes-intro">
     <h1>The most delicious recipes are just waiting for you!</h1>
     <p>Explore the list or filter by cuisine.</p>
-    <form method="GET" action=".">
+    <form method="GET" action="." class="form-category">
         {% csrf_token %} 
-        <select name="filter">
+        <select name="filter" class="select">
             <option value="0">All</option>
             <option value="1">European</option>
             <option value="2">Asian</option>
@@ -15,7 +15,7 @@
             <option value="4">African</option>
             <option value="5">North-/Southamerican</option>
         </select>
-        <input type="submit" value="Submit">
+        <input type="submit" class="select-submit" value="Filter">
     </form>
 
 </section>
