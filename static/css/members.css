@@ -20,25 +20,45 @@ colors:
     top: 12vh;
     position: relative;
     width: 100%;
-    min-height: 88vh;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .recipe-excerpt {
-    width: 28%;
-    border: 2px solid #a218c7;
+    width: 26%;
+    border: 3px solid #a218c7;
     margin: 2%;
-    height: 90%;
+    padding: 1%;
     text-align: center;
+    height: 45vw;
+}
+
+.recipe-excerpt p {
+    font-size: 2vw;
+}
+
+.recipe-excerpt a, .recipe-excerpt a:visited, .recipe-excerpt a:active {
+    color: black;
 }
 
 .recipes-list-photo {
-    width: -webkit-fill-available;
-    padding: 2%;
+    width: 26vw;
+    height: 26vw;
+    object-fit: cover;
 }
 
 .vegetarian {
     display: flex;
     align-items: center;
+}
+
+.vegetarian img {
+    width: 2.5vw;
+}
+
+@media (max-width:768px) {
+    .recipe-excerpt {
+        height: 55vw;
+    }
 }

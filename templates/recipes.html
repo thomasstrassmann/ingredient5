@@ -12,7 +12,7 @@
     {% for recipe in recipe_list %}
     <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
-            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" class="recipe-list-photo"
+            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" class="recipes-list-photo"
                 alt="Photo of the meal" />
             <h3>{{ recipe.title }}</h3>
         </a>
