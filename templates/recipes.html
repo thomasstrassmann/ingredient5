@@ -2,32 +2,56 @@
 {% load static %}
 
 {% block content %}
-<h1>The most delicious recipes are just waiting for you!</h1>
-<p>Explore the list or filter by cuisine.</p>
+<section class="recipes-intro">
+    <h1>The most delicious recipes are just waiting for you!</h1>
+    <p>Explore the list or filter by cuisine.</p>
+</section>
+
+<section class="recipes-list">
 
     {% for recipe in recipe_list %}
-    <div>
+    <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
-            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" alt="Photo of the meal" />
-            <h3>{{ recipe.title }}</h3></a>
-            <p>{{ recipe.type }} <p>
+            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" class="recipe-list-photo"
+                alt="Photo of the meal" />
+            <h3>{{ recipe.title }}</h3>
+        </a>
+        {% if recipe.type == 0 %}
+        <p>Unassignable</p>
+        {% elif recipe.type == 1 %}
+        <p>European</p>
+        {% elif recipe.type == 2 %}
+        <p>Asian</p>
+        {% elif recipe.type == 3 %}
+        <p>Arabic</p>
+        {% elif recipe.type == 4 %}
+        <p>African</p>
+        {% else %}
+        <p>North-/Southamerican</p>
+        {% endif %}
+
         </a>
         {% if recipe.vegetarian %}
-            <img src="#">
+        <span class="vegetarian">
+            <p>Vegetarian</p>
+            <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
+        </span>
         {% endif %}
     </div>
     {% endfor %}
 
-{% if is_paginated %}
-<nav aria-label="Navigation">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
-        {% endif %}
-    </ul>
-</nav>
+    {% if is_paginated %}
+    <nav aria-label="Navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+</section>
 {% endif %}
 {%endblock%}

@@ -1,0 +1,44 @@
+/* 
+colors: 
+#18c787
+#5c047f
+#38fa46
+#fb76eb
+#a218c7
+*/
+
+.recipes-intro {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    top: 12vh;
+    text-align: center;
+    padding: 2%;
+}
+
+.recipes-list {
+    top: 12vh;
+    position: relative;
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-excerpt {
+    width: 28%;
+    border: 2px solid #a218c7;
+    margin: 2%;
+    height: 90%;
+    text-align: center;
+}
+
+.recipes-list-photo {
+    width: -webkit-fill-available;
+    padding: 2%;
+}
+
+.vegetarian {
+    display: flex;
+    align-items: center;
+}
