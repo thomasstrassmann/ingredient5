@@ -47,15 +47,22 @@
     <div class="recipe-instructions">
       <p>{{ recipe.content | safe }}</p>
    </div>
+
     {% if user.is_authenticated %}
-    <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
+    <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST" class="bookmark-section">
       {% csrf_token %}
-      {% if liked %}
-      <button type="submit" name="recipe_id" value="{{recipe.slug}}">Bookmarked FA</button>
+      {% if bookmarked %}
+      <label for="delete">Delete bookmark</label>
+      <button type="submit" name="recipe_id" value="{{recipe.slug}}" id="delete">
+        <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
+      </button>
       {% else %}
-      <button type="submit" name="recipe_id" value="{{recipe.slug}}">Not bookmarked</button>
+      <label for="bookmark">Bookmark and add to cookbook</label>
+      <button type="submit" name="recipe_id" value="{{recipe.slug}}" id="bookmark">
+        <img src="{% static 'img/icons/book.svg' %}" alt="bookmark here">
+      </button>
       {% endif %}
-      <span> {{ recipe.num_of_bookmarks }} </span>
+      <span>Bookmarked in total: {{ recipe.num_of_bookmarks }} </span>
       {% endif %}
     </form>
   </article>

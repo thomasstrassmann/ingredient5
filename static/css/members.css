@@ -182,4 +182,32 @@ colors:
     width: 80%;
     margin: 0 auto;
     text-align: justify;
+    margin-bottom: 5%;
+}
+
+.bookmark-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 10%;
+}
+
+.bookmark-section button {
+    border: none;
+    background: white;
+}
+
+.bookmark-section button img {
+    width: 4vw;
+}
+
+.bookmark-section span {
+    width: auto;
+    margin-left: 10%;
+}
+
+.bookmark-section button, .bookmark-section label[for] {
+    cursor: pointer;
 }
