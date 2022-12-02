@@ -68,46 +68,44 @@
   </article>
 
   <article class="comments">
-    <div>
+    <div class="comments-headline">
+      <h3>Comments section</h3>
+      <p>Post your thoughts, feedback and tips and help others to become a starchef too!</p>
+    </div>
+
+    <div class="comments-counter">
       {% with comments.count as total %}
-      <strong><i class="far fa-comments"></i> {{ total }}</strong>
+      <p>Total comments: {{ total }}</p>
       {% endwith %}
     </div>
 
-    <div>
-      <h3>Comments:</h3>
-      <div>
         {% for comment in comments %}
-        <div>
-          <p>
-            {{ comment.username }}
-            <span> {{ comment.created }} </span> wrote:
-          </p>
-          {{ comment.message }}
+        <div class="comments-display">
+          <p><strong>{{ comment.username }}</strong> wrote:</p>
+          <p class="comments-message">{{ comment.message }}</p>
+          <p class="comments-message-published">Published: {{ comment.created }}</p>
         </div>
         {% endfor %}
-      </div>
-    </div>
-
-    <div>
+        
       {% if commented %}
-      <div>
-        <p>
+      <div class="comments-post">
+        <p class="feedback">
           We are currently checking your comment, please wait a few minutes for
           approval!
         </p>
-      </div>
-      {% else %} {% if user.is_authenticated %}
+      {% else %} 
+      {% if user.is_authenticated %}
 
       <h3>Post your comment right here:</h3>
-      <p>{{ user.username }} says:</p>
-      <form method="post">
-        {{ comment_form }} {% csrf_token %}
+      <form method="post" class="comments-post-form">
+        {{ comment_form }} 
+        {% csrf_token %}
         <button type="submit">Submit</button>
       </form>
       {% endif %}
       {% endif %}
     </div>
+
   </article>
 </section>
 {% endblock content %}
