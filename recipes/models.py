@@ -12,7 +12,7 @@ class Recipe(models.Model):
     updated = models.DateTimeField(auto_now=True)
     type = models.IntegerField(choices=CUISINE, null=False, blank=False, default=0)
     content = models.TextField()
-    excerpt = models.TextField(blank=True)
+    ingredients = models.TextField(blank=True)
     vegetarian = models.BooleanField(default=False)
     status = models.IntegerField(choices=PUBLISHED_STATUS, default=0)
     bookmarks = models.ManyToManyField(User, related_name="recipe_bookmarks", blank=True)

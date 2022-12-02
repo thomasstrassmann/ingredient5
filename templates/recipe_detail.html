@@ -39,9 +39,14 @@
 </section>
 
 <section class="recipe-content">
-  <article class="recipe-instructions">
-    <p>{{ recipe.content | safe }}</p>
-
+  <article class="recipe-content-container">
+    <div class="ingredients">
+      <h4>Ingredients</h4>
+      {{ recipe.ingredients | safe }}
+    </div>
+    <div class="recipe-instructions">
+      <p>{{ recipe.content | safe }}</p>
+   </div>
     {% if user.is_authenticated %}
     <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
       {% csrf_token %}

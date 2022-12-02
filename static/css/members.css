@@ -158,7 +158,28 @@ colors:
     top: 12vh;
 }
 
+.recipe-content-container {
+    margin: 0 auto;
+}
+
+.ingredients {
+    background-color: #a218c7;
+    width: 100%;
+    padding: 2%;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    text-align: center;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.ingredients h4 {
+    margin: 0;
+    padding-bottom: 1%;
+}
+
 .recipe-instructions {
     width: 80%;
     margin: 0 auto;
+    text-align: justify;
 }
