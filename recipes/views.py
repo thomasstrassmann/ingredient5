@@ -98,3 +98,13 @@ class RecipeBookmark(View):
             recipe.bookmarks.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+
+class BookmarkRemove(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        recipe.bookmarks.remove(request.user)
+
+        return HttpResponseRedirect(reverse('cookbook_list'))
+

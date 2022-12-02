@@ -2,35 +2,60 @@
 {% load static %}
 
 {% block content %}
-<h1>My Cookbook</h1>
-<div>
+<section class="recipes-intro">
+    <h1>My cookbook</h1>
+    <p>All your bookmarked recipes in one condensed list.</p>
+</section>
+
+<section class="recipes-list">
+
     {% for recipe in recipe_list %}
-    <div>
-        <!-- <img src="{% static 'images/{{recipe.slug}}.jpg' %}"> -->
-
-
+    <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
+            <img src="{% static 'img/recipes/' %}{{recipe.slug}}.jpg" class="recipes-list-photo"
+                alt="Photo of the meal" />
             <h3>{{ recipe.title }}</h3>
-            <p>{{ recipe.type }} <p>
-            <p>{{ recipe.excerpt }}</p>
+        </a>
+        {% if recipe.type == 0 %}
+        <p>Unassignable</p>
+        {% elif recipe.type == 1 %}
+        <p>European</p>
+        {% elif recipe.type == 2 %}
+        <p>Asian</p>
+        {% elif recipe.type == 3 %}
+        <p>Arabic</p>
+        {% elif recipe.type == 4 %}
+        <p>African</p>
+        {% else %}
+        <p>North-/Southamerican</p>
+        {% endif %}
+
         </a>
         {% if recipe.vegetarian %}
-            <img src="{% static 'images/vegetarian.jpg' %}">
+        <span class="vegetarian">
+            <p>Vegetarian</p>
+            <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
+        </span>
         {% endif %}
+        <form action="{% url 'remove_bookmark' recipe.slug %}" method="POST">
+            {% csrf_token %} 
+            <button type="submit" name="recipe_id" value="{{recipe.slug}}">Not bookmarked</button>
+          </form>
     </div>
     {% endfor %}
 
-{% if is_paginated %}
-<nav aria-label="Navigation">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
-        {% endif %}
-    </ul>
-</nav>
+    {% if is_paginated %}
+    <nav aria-label="Navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+</section>
 {% endif %}
-</div>
 {%endblock%}
