@@ -30,7 +30,7 @@ class RecipeDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter(approved=True).order_by('created')
+        comments = recipe.comments.filter(approved=True).order_by('-created')
         vegetarian = recipe.vegetarian
         type = recipe.type
         bookmarked = False
