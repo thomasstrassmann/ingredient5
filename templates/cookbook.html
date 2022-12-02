@@ -8,7 +8,12 @@
 </section>
 
 <section class="recipes-list">
-
+    {% if not recipe_list %}
+    <div class="empty-cookbook">
+        <p>Oh, your cookbook is still empty!</p>
+        <p>Go to the recipes section and add dishes to your cookbook.</p>
+    </div>
+    {% endif %}
     {% for recipe in recipe_list %}
     <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">

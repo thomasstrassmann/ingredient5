@@ -284,6 +284,17 @@ colors:
 
 /* Cookbook page */
 
+.empty-cookbook {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 5% 0;
+    height: 20vh;
+    width: 50%;
+    border: 2px solid #a218c7;
+}
+
 .remove-cookbook {
     display: flex;
     margin-top: 5%;
@@ -301,5 +312,5 @@ colors:
 }
 
 .remove-cookbook button img {
-    width: 2vw;
+    width: 1.5vw;
 }
