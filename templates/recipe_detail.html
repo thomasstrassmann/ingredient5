@@ -1,20 +1,36 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<div>
-  <h1>{{ recipe.title }}</h1>
-  <p>{{ recipe.type }}</p>
-  {% if recipe.vegetarian %}
-  <p>Vegetarian</p>
-  {% endif %}
-  <p>{{ recipe.created }}</p>
-</div>
-<div>
-  <img src="#" alt="Image of the recipe" />
-</div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="recipe-hero" aria-label="recipe image">
+  <div class="recipe-hero-image" style="background-image: url('{% static 'img/recipes/' %}{{ recipe.slug }}.jpg')">
+    <div class="recipe-hero-container">
+      <div class="recipe-hero-text">
+        <h1>{{ recipe.title }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="recipe-details" aria-label="recipe details">
+  <div>
+    <p>{{ recipe.type }}</p>
+    {% if recipe.vegetarian %}
+    <span class="vegetarian">
+      <p>Vegetarian</p>
+      <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
+    </span>
+    {% endif %}
+    <p>{{ recipe.created }}</p>
+  </div>
+</section>
+
+
 <p>{{ recipe.content | safe }}</p>
 
 {% if user.is_authenticated %}
 <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
-  {% csrf_token %} 
+  {% csrf_token %}
   {% if liked %}
   <button type="submit" name="recipe_id" value="{{recipe.slug}}">Bookmarked FA</button>
   {% else %}
@@ -61,7 +77,7 @@
     {{ comment_form }} {% csrf_token %}
     <button type="submit">Submit</button>
   </form>
-  {% endif %} 
+  {% endif %}
   {% endif %}
 </div>
 {% endblock content %}
