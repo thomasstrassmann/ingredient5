@@ -55,6 +55,7 @@ colors:
 .vegetarian {
     display: flex;
     align-items: center;
+    width: auto;
 }
 
 .vegetarian img {
@@ -133,5 +134,31 @@ colors:
     position: relative;
     width: 100%;
     top: 12vh;
-    height: 88vh;
+}
+
+.recipe-details-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 5% 0;
+}
+
+@media (max-width:768px) {
+    .recipe-details-container {
+        flex-direction: column;
+        gap: 1vh;
+    }
+}
+
+.recipe-content {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    top: 12vh;
+}
+
+.recipe-instructions {
+    width: 80%;
+    margin: 0 auto;
 }

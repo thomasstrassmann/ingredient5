@@ -13,71 +13,89 @@
 </section>
 
 <section class="recipe-details" aria-label="recipe details">
-  <div>
-    <p>{{ recipe.type }}</p>
+  <div class="recipe-details-container">
+    {% if recipe.type == 0 %}
+    <p>Cuisine: Unassignable</p>
+    {% elif recipe.type == 1 %}
+    <p>Cuisine: European</p>
+    {% elif recipe.type == 2 %}
+    <p>Cuisine: Asian</p>
+    {% elif recipe.type == 3 %}
+    <p>Cuisine: Arabic</p>
+    {% elif recipe.type == 4 %}
+    <p>Cuisine: African</p>
+    {% else %}
+    <p>Cuisine: North-/Southamerican</p>
+    {% endif %}
+
     {% if recipe.vegetarian %}
     <span class="vegetarian">
       <p>Vegetarian</p>
       <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
     </span>
     {% endif %}
-    <p>{{ recipe.created }}</p>
+    <p>Published: {{ recipe.created }}</p>
   </div>
 </section>
 
+<section class="recipe-content">
+  <article class="recipe-instructions">
+    <p>{{ recipe.content | safe }}</p>
 
-<p>{{ recipe.content | safe }}</p>
+    {% if user.is_authenticated %}
+    <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
+      {% csrf_token %}
+      {% if liked %}
+      <button type="submit" name="recipe_id" value="{{recipe.slug}}">Bookmarked FA</button>
+      {% else %}
+      <button type="submit" name="recipe_id" value="{{recipe.slug}}">Not bookmarked</button>
+      {% endif %}
+      <span> {{ recipe.num_of_bookmarks }} </span>
+      {% endif %}
+    </form>
+  </article>
 
-{% if user.is_authenticated %}
-<form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST">
-  {% csrf_token %}
-  {% if liked %}
-  <button type="submit" name="recipe_id" value="{{recipe.slug}}">Bookmarked FA</button>
-  {% else %}
-  <button type="submit" name="recipe_id" value="{{recipe.slug}}">Not bookmarked</button>
-  {% endif %}
-  <span> {{ recipe.num_of_bookmarks }} </span>
-  {% endif %}
-</form>
-
-<div>
-  {% with comments.count as total %}
-  <strong><i class="far fa-comments"></i> {{ total }}</strong>
-  {% endwith %}
-</div>
-
-<div>
-  <h3>Comments:</h3>
-  <div>
-    {% for comment in comments %}
+  <article class="comments">
     <div>
-      <p>
-        {{ comment.username }}
-        <span> {{ comment.created }} </span> wrote:
-      </p>
-      {{ comment.message }}
+      {% with comments.count as total %}
+      <strong><i class="far fa-comments"></i> {{ total }}</strong>
+      {% endwith %}
     </div>
-    {% endfor %}
-  </div>
-</div>
 
-<div>
-  {% if commented %}
-  <div>
-    <p>
-      We are currently checking your comment, please wait a few minutes for
-      approval!
-    </p>
-  </div>
-  {% else %} {% if user.is_authenticated %}
+    <div>
+      <h3>Comments:</h3>
+      <div>
+        {% for comment in comments %}
+        <div>
+          <p>
+            {{ comment.username }}
+            <span> {{ comment.created }} </span> wrote:
+          </p>
+          {{ comment.message }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
 
-  <h3>Post your comment right here:</h3>
-  <p>{{ user.username }} says:</p>
-  <form method="post">
-    {{ comment_form }} {% csrf_token %}
-    <button type="submit">Submit</button>
-  </form>
-  {% endif %}
-  {% endif %}
-</div>
+    <div>
+      {% if commented %}
+      <div>
+        <p>
+          We are currently checking your comment, please wait a few minutes for
+          approval!
+        </p>
+      </div>
+      {% else %} {% if user.is_authenticated %}
+
+      <h3>Post your comment right here:</h3>
+      <p>{{ user.username }} says:</p>
+      <form method="post">
+        {{ comment_form }} {% csrf_token %}
+        <button type="submit">Submit</button>
+      </form>
+      {% endif %}
+      {% endif %}
+    </div>
+  </article>
+</section>
 {% endblock content %}
