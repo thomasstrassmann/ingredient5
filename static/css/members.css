@@ -25,6 +25,7 @@ colors:
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    min-height: 55vh;
 }
 
 .recipe-excerpt {
@@ -210,7 +211,9 @@ colors:
 }
 
 .bookmark-section button,
-.bookmark-section label[for] {
+.bookmark-section label[for], 
+.remove-cookbook button, 
+.remove-cookbook label[for] {
     cursor: pointer;
 }
 
@@ -277,4 +280,26 @@ colors:
     background-color: #18c787;
     padding: 2%;
     margin: 10% 0;
+}
+
+/* Cookbook page */
+
+.remove-cookbook {
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-cookbook button {
+    border: none;
+    background: white;
+}
+
+.remove-cookbook label[for] {
+    font-size: 1vw;
+}
+
+.remove-cookbook button img {
+    width: 2vw;
 }
