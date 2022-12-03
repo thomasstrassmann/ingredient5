@@ -74,7 +74,8 @@ colors:
     font-family: 'Ubuntu';
 }
 
-.select-submit, .comments-post-form button {
+.select-submit,
+.comments-post-form button {
     background-color: #a218c7;
     color: white;
     border-radius: 10px;
@@ -211,8 +212,8 @@ colors:
 }
 
 .bookmark-section button,
-.bookmark-section label[for], 
-.remove-cookbook button, 
+.bookmark-section label[for],
+.remove-cookbook button,
 .remove-cookbook label[for] {
     cursor: pointer;
 }
@@ -313,4 +314,41 @@ colors:
 
 .remove-cookbook button img {
     width: 1.5vw;
+}
+
+/* Workshop page */
+
+.workshop {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    top: 12vh;
+    min-height: 55vh;
+    padding: 2%;
+    text-align: center;
+}
+
+.workshop-form {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2% auto;
+    font-size: 2vw;
+    padding: 2%;
+    border: 4px solid #a218c7;
+    gap: 1vw;
+}
+
+.workshop-button {
+    border: 2px solid #a218c7;
+    font-size: 2vw;
+    font-family: 'Ubuntu';
+    background-color: #a218c7;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 0 2%;
+    margin: 10% 0;
+    cursor: pointer;
 }

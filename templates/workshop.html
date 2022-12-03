@@ -2,20 +2,21 @@
 
 {% block content %}
 
+<section class="workshop">
 {% if email %}
-<h2>Thank you {{ user }} for booking an unforgettable workshop!</h2>
-<p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
-<p>We are very much looking forward to seeing you! Let's cook something great! </p>
+    <h2>Thank you {{ user }} for booking an unforgettable workshop!</h2>
+    <p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
+    <p>We are very much looking forward to seeing you! Let's cook something great! </p>
 {% endif %}
 
-<h1>Book your viritual cooking workshop right now!</h1>
-<p>Learn new delicious recipes that will blow your guests away!</p> 
-<p>Meet new, ambitious chefs and share your experiences.</p>
+    <h1>Book your viritual cooking workshop right now!</h1>
+    <p>Learn new delicious recipes that will blow your guests away!</p>
+    <p>Meet new, ambitious chefs and share your experiences.</p>
 
-<form action="" method="POST">
-{% csrf_token %}
-{{ appointment_form }}
-<input type="Submit" value="Book workshop now!">
-</form>
-
+    <form action="" method="POST" class="workshop-form">
+        {% csrf_token %}
+        {{ appointment_form }}
+        <input type="Submit" value="Book workshop now!" class="workshop-button">
+    </form>
+</section>
 {%endblock%}
