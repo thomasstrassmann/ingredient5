@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Workshop
+from .models import Workshop, TIME_SLOTS
 
 
 class WorkshopAdmin(admin.ModelAdmin):
