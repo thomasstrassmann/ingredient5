@@ -33,7 +33,7 @@
             <form action="{% url 'remove_appointment' appointment_id=appointment.id %}" method="POST" class="remove-appointment">
                 {% csrf_token %}
                 <label for="remove-appointment-button">Remove</label>
-                <button type="submit" name="appointment_id" value="{{appointment.id}}" id="remove-appointment-button">
+                <button type="submit" name="appointment_id" value="{{appointment.id}}" id="remove-appointment-button" class="remove-button">
                     <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
                 </button>
             </form>

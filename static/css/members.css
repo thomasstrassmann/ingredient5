@@ -214,7 +214,10 @@ colors:
 .bookmark-section button,
 .bookmark-section label[for],
 .remove-cookbook button,
-.remove-cookbook label[for] {
+.remove-cookbook label[for], 
+.remove-appointment button,
+.remove-appointment label[for]
+{
     cursor: pointer;
 }
 
@@ -296,23 +299,26 @@ colors:
     border: 2px solid #a218c7;
 }
 
-.remove-cookbook {
+.remove-cookbook, .remove-appointment {
     display: flex;
     margin-top: 5%;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    width: 80%;
+    margin: 5% auto;
 }
 
-.remove-cookbook button {
+.remove-button {
     border: none;
     background: white;
 }
 
-.remove-cookbook label[for] {
+.remove-cookbook label[for], .remove-appointment label[for] {
     font-size: 1vw;
 }
 
-.remove-cookbook button img {
+.remove-button img {
     width: 1.5vw;
 }
 
@@ -324,8 +330,9 @@ colors:
     width: 100%;
     top: 12vh;
     min-height: 55vh;
-    padding: 2%;
     text-align: center;
+    overflow: hidden;
+    z-index: 0;
 }
 
 .workshop-form {
