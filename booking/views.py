@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views import View
+from django.http import HttpResponseRedirect
 from .models import Workshop
 from django.core.mail import send_mail
 from .forms import AppointmentForm
@@ -42,3 +43,12 @@ def workshop(request):
             "appointment_form": AppointmentForm(),
             "booked": False,
         })
+
+
+class AppointmentRemove(View):
+
+    def post(self, request, appointment_id, *args, **kwargs):
+        workshop_to_remove = get_object_or_404(Workshop, id=appointment_id)
+        workshop_to_remove.remove()
+
+        return HttpResponseRedirect(reverse('workshop_list'))

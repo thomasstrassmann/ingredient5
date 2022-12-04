@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -29,6 +30,13 @@
         <div class="personal-workshop-date">
             <p>Date: {{ appointment.day }}</p>
             <p>Time: {{ appointment.time }}</p>
+            <form action="{% url 'remove_appointment' appointment_id=appointment.id %}" method="POST" class="remove-appointment">
+                {% csrf_token %}
+                <label for="remove-appointment-button">Remove</label>
+                <button type="submit" name="appointment_id" value="{{appointment.id}}" id="remove-appointment-button">
+                    <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
+                </button>
+            </form>
         </div>
     {% endfor%}
     </div>
