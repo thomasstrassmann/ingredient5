@@ -106,7 +106,7 @@ header a {
     font-family: 'Bebas Neue', cursive;
 }
 
-header a:active,
+header a, a:active,
 a:visited {
     color: black
 }

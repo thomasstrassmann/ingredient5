@@ -3,11 +3,11 @@
 {% block content %}
 
 <section class="workshop">
-{% if booked %}
+    {% if booked %}
     <h2>Thank you {{ user }} for booking an unforgettable workshop!</h2>
     <p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
     <p>We are very much looking forward to seeing you! Let's cook something great! </p>
-{% else %}
+    {% else %}
     <h1>Book your viritual cooking workshop right now!</h1>
     <p>Learn new delicious recipes that will blow your guests away!</p>
     <p>Meet new, ambitious chefs and share your experiences.</p>
@@ -17,6 +17,22 @@
         {{ appointment_form }}
         <input type="Submit" value="Book workshop now!" class="workshop-button">
     </form>
+</section>
+<section class="personal-workshop">
+    <h3>My booked workshops</h3>
+    {% if not appointments %}
+    <p>You don't have any booked workshops right now.</p>
+    <p>Book your virtual cooking course in the form above to create unforgettable dishes. </p>
+    {% else %}
+    <div class="personal-workshop-container">
+        {% for appointment in appointments %}
+        <div class="personal-workshop-date">
+            <p>Date: {{ appointment.day }}</p>
+            <p>Time: {{ appointment.time }}</p>
+        </div>
+    {% endfor%}
+    </div>
+    {% endif%}
 </section>
 {% endif %}
 {%endblock%}

@@ -8,7 +8,7 @@ import os
 
 def workshop(request):
     if request.method == 'POST':
-        username = request.user.username
+        user = request.user
         email = request.POST['email']
         day = request.POST['day']
         time = request.POST['time']
@@ -16,7 +16,7 @@ def workshop(request):
 
         booking_form = AppointmentForm(data=request.POST)
         if booking_form.is_valid():
-            booking_form.instance.username = request.user.username
+            booking_form.instance.user = request.user
             booking = booking_form.save(commit=False)
             booking.save()
         else:
@@ -34,7 +34,11 @@ def workshop(request):
                 "booked": True})
 
     else:
-        return render(
-            request, 'workshop.html', {
-                "appointment_form": AppointmentForm(),
-                "booked": False})
+        user = request.user
+        appointments = Workshop.objects.filter(user=user).order_by('day')
+        return render(request, 'workshop.html', {
+            "user": user,
+            "appointments": appointments,
+            "appointment_form": AppointmentForm(),
+            "booked": False,
+        })
