@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.views import View
 from django.http import HttpResponseRedirect
 from .models import Workshop
@@ -49,6 +49,6 @@ class AppointmentRemove(View):
 
     def post(self, request, appointment_id, *args, **kwargs):
         workshop_to_remove = get_object_or_404(Workshop, id=appointment_id)
-        workshop_to_remove.remove()
+        workshop_to_remove.delete()
 
         return HttpResponseRedirect(reverse('workshop_list'))
