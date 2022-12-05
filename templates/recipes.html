@@ -52,10 +52,11 @@
         {% endif %}
     </div>
     {% endfor %}
+</section>
 
     {% if is_paginated %}
-    <nav aria-label="Navigation">
-        <ul class="pagination justify-content-center">
+    <nav aria-label="Navigation" class="nav-pagination">
+        <ul class="pagination">
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
             {% endif %}
@@ -65,6 +66,5 @@
         </ul>
     </nav>
 
-</section>
 {% endif %}
 {%endblock%}

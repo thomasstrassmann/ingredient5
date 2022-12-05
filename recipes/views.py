@@ -13,7 +13,7 @@ class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created')
     template_name = 'recipes.html'
-    paginate_by = 5
+    paginate_by = 12
 
     def get_queryset(self):
         filter_val = self.request.GET.get('filter', '0')
@@ -85,7 +85,7 @@ class CookbookList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(bookmarks=True).order_by('-created')
     template_name = 'cookbook.html'
-    paginate_by = 5
+    paginate_by = 12
 
 
 class RecipeBookmark(View):

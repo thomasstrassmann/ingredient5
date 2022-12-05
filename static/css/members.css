@@ -93,6 +93,15 @@ colors:
     }
 }
 
+.nav-pagination {
+    position: relative;
+    top: 12vh;
+}
+
+.pagination li a {
+    margin: 2% auto;
+    color: black;
+}
 
 /* Recipe detail page */
 
@@ -130,6 +139,8 @@ colors:
     text-align: center;
     width: 100%;
     padding: 3%;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
 }
 
 .recipe-details {
@@ -197,6 +208,13 @@ colors:
     margin-bottom: 10%;
 }
 
+@media (max-width:768px) {
+    .bookmark-section {
+        width: 80%;
+        margin: 5% auto;
+    }
+}
+
 .bookmark-section button {
     border: none;
     background: white;
@@ -214,10 +232,9 @@ colors:
 .bookmark-section button,
 .bookmark-section label[for],
 .remove-cookbook button,
-.remove-cookbook label[for], 
+.remove-cookbook label[for],
 .remove-appointment button,
-.remove-appointment label[for]
-{
+.remove-appointment label[for] {
     cursor: pointer;
 }
 
@@ -299,7 +316,8 @@ colors:
     border: 2px solid #a218c7;
 }
 
-.remove-cookbook, .remove-appointment {
+.remove-cookbook,
+.remove-appointment {
     display: flex;
     margin-top: 5%;
     justify-content: center;
@@ -313,7 +331,8 @@ colors:
     background: white;
 }
 
-.remove-cookbook label[for], .remove-appointment label[for] {
+.remove-cookbook label[for],
+.remove-appointment label[for] {
     font-size: 1vw;
 }
 
