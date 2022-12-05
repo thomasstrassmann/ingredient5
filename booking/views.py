@@ -25,24 +25,25 @@ def workshop(request):
 
         send_mail(
             "Your virtual cooking workshop by Ingredient5",
-            ("Thanks for your reservation on the " + day + " at " + time + "."
+            ("Thanks for your reservation on the " + day + " at "
+                + time + ".\n"
                 "We are really looking forward to create a great "
-                "cooking class with you ant the other star chefs. "
-                "What you should consider in any case: "
+                "cooking class with you ant the other star chefs. \n"
+                "What you should consider in any case: \n"
                 "Have a fully charged smartphone/tablet ready for the "
-                "appointment. "
+                "appointment. \n"
                 "We will email you the required ingredients 3 days in "
                 "advance so that you still have the opportunity to go "
-                "shopping."
+                "shopping. \n \n"
 
-                "The google-meet link to the meeting: "
-                "https://meet.google.com/fak-elo-gin"
+                "The google-meet link to the meeting: \n"
+                "https://meet.google.com/fak-elo-gin \n \n"
 
-                "In the attachment you will find the corresponding invoice."
+                "In the attachment you will find the corresponding invoice. \n"
                 "We are happy tp have you and if you have any questions, "
-                "please do not hesitate to contact us! "
+                "please do not hesitate to contact us! \n"
 
-                "Kind regards, "
+                "Kind regards, \n"
                 "your Ingredients Team"),
             host,
             (email,))
