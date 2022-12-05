@@ -40,8 +40,8 @@ def workshop(request):
                 "https://meet.google.com/fak-elo-gin \n \n"
 
                 "In the attachment you will find the corresponding invoice. \n"
-                "We are happy tp have you and if you have any questions, "
-                "please do not hesitate to contact us! \n"
+                "We are happy to have you and if you have any questions, "
+                "please do not hesitate to contact us! \n \n"
 
                 "Kind regards, \n"
                 "your Ingredients Team"),
