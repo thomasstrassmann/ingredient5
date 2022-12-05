@@ -14,7 +14,7 @@ class Workshop(models.Model):
 
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
-    email = models.EmailField(null=False, blank=False, default="E-mail address")
+    email = models.EmailField(null=False, blank=False)
     day = models.DateField(default=datetime.now, null=False, blank=False)
     time = models.CharField(max_length=8, choices=TIME_SLOTS, default="5 PM", null=False, blank=False)
     registered = models.DateTimeField(default=datetime.now, blank=True)
