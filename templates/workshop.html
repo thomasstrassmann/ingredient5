@@ -20,11 +20,13 @@
     </form>
 </section>
 <section class="personal-workshop">
-    <h3>My booked workshops</h3>
+    <h3>My booked workshops - personal reminder</h3>
     {% if not appointments %}
     <p>You don't have any booked workshops right now.</p>
     <p>Book your virtual cooking course in the form above to create unforgettable dishes. </p>
     {% else %}
+    <p>If you are unable to attend a booked class, please contact our support at workshop.ingredient5@gmail.com.
+        Then we will find a suitable solution for you!</p>
     <div class="personal-workshop-container">
         {% for appointment in appointments %}
         <div class="personal-workshop-date">
