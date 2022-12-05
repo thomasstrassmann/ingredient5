@@ -33,8 +33,19 @@ header {
 }
 
 .logo-container {
-    width: 15%;
     margin-left: 5%;
+}
+
+@media (orientation: portrait) {
+    .logo-container {
+        width: 20%;
+    }
+}
+
+@media (orientation: landscape) {
+    .logo-container {
+        width: 10%;
+    }
 }
 
 .logo-container img {
@@ -182,6 +193,12 @@ footer {
     display: flex;
     border-top: 4px solid #38FA46;
     border-bottom: 4px solid #38FA46;
+}
+
+@media (max-width:600px) {
+    footer {
+        height: 18vh;
+    }
 }
 
 .footer-infos {
