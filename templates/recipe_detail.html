@@ -3,7 +3,7 @@
 
 {% block content %}
 <section class="recipe-hero" aria-label="recipe image">
-  <div class="recipe-hero-image" style="background-image: url('{% static 'img/recipes/' %}{{ recipe.slug }}.jpg')">
+  <div class="recipe-hero-image" style="background-image: url('{{ recipe.recipe_image.url }}')">
     <div class="recipe-hero-container">
       <div class="recipe-hero-text">
         <h1>{{ recipe.title }}</h1>

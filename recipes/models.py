@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 PUBLISHED_STATUS = ((0, "Draft"), (1, "Published"))
 CUISINE = ((0, "Unassignable"), (1, "European"), (2, "Asian"), (3, "Arabic"), (4, "African"), (5, "North-/Southamerican"))
@@ -8,6 +9,7 @@ CUISINE = ((0, "Unassignable"), (1, "European"), (2, "Asian"), (3, "Arabic"), (4
 class Recipe(models.Model):
     title = models.CharField(max_length=180, unique=True)
     slug = models.SlugField()
+    recipe_image = CloudinaryField('image', default='placeholder')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     type = models.IntegerField(choices=CUISINE, null=False, blank=False, default=0)
