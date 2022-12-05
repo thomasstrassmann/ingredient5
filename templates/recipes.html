@@ -4,6 +4,9 @@
 {% block content %}
 <section class="recipes-intro">
     <h1>The most delicious recipes are just waiting for you!</h1>
+    <p class="instruction-note">All recipes assume that the basics of any kitchen are present, such as water, 
+        oil, butter, salt, pepper, flour, sugar etc. Furthermore, each cuisine requires typical spices 
+        of the region.</p>
     <p>Explore the list or filter by cuisine.</p>
     <form method="GET" action="." class="form-category">
         {% csrf_token %} 

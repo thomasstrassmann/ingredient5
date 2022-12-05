@@ -15,7 +15,12 @@ colors:
     width: 100%;
     top: 12vh;
     text-align: center;
-    padding: 2%;
+    overflow: hidden;
+}
+
+.instruction-note {
+    margin: 2% 10%;
+    font-size: 1.5vw;
 }
 
 .recipes-list {
