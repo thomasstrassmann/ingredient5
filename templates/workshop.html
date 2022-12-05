@@ -5,7 +5,7 @@
 
 <section class="workshop">
     {% if booked %}
-    <h2>Thank you {{ user }} for booking an unforgettable workshop!</h2>
+    <h2>Thank you <span class="user-display">{{ user }}</span> for booking an unforgettable workshop!</h2>
     <p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
     <p>We are very much looking forward to seeing you! Let's cook something great! </p>
     {% else %}
