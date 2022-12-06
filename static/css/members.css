@@ -1,7 +1,7 @@
 /* 
 colors: 
 #18c787
-#5c047f
+#5c947f
 #38fa46
 #fb76eb
 #a218c7
@@ -35,10 +35,9 @@ colors:
 
 .recipe-excerpt {
     width: 26%;
-    border: 3px solid #a218c7;
+    border: 3px solid #5c947f;
     margin: 2%;
     position: relative;
-    padding-top: 1%;
     text-align: center;
     height: 45vw;
 }
@@ -46,7 +45,7 @@ colors:
 @media (max-width:768px) {
     .recipe-excerpt{
         width: 35%;
-        height: 66vw;
+        height: 57vw;
     }
 
     .recipe-excerpt-infos{
