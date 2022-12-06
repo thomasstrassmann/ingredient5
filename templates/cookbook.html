@@ -45,9 +45,9 @@
 
             <form action="{% url 'remove_bookmark' recipe.id %}" method="POST" class="remove-cookbook">
                 {% csrf_token %}
-                <label for="remove-button">Remove</label>
+                <label for="remove-button"></label>
                 <button type="submit" name="recipe_id" value="{{recipe.id}}" id="remove-cookbook-button"
-                    class="remove-button">
+                    class="remove-button">Remove
                     <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
                 </button>
             </form>

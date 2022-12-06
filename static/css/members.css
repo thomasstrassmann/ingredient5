@@ -27,6 +27,7 @@ colors:
     top: 12vh;
     position: relative;
     width: 100%;
+    margin: 5% 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -352,6 +353,9 @@ colors:
 .remove-button {
     border: none;
     background: white;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
 }
 
 .remove-cookbook label[for],
