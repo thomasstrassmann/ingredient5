@@ -49,16 +49,16 @@
    </div>
 
     {% if user.is_authenticated %}
-    <form action="{% url 'recipe_bookmark' recipe.slug %}" method="POST" class="bookmark-section">
+    <form action="{% url 'recipe_bookmark' recipe.id %}" method="POST" class="bookmark-section">
       {% csrf_token %}
       {% if bookmarked %}
       <label for="delete">Delete bookmark</label>
-      <button type="submit" name="recipe_id" value="{{recipe.slug}}" id="delete">
+      <button type="submit" name="recipe_id" value="{{recipe.id}}" id="delete">
         <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
       </button>
       {% else %}
       <label for="bookmark">Bookmark and add to cookbook</label>
-      <button type="submit" name="recipe_id" value="{{recipe.slug}}" id="bookmark">
+      <button type="submit" name="recipe_id" value="{{recipe.id}}" id="bookmark">
         <img src="{% static 'img/icons/book.svg' %}" alt="bookmark here">
       </button>
       {% endif %}

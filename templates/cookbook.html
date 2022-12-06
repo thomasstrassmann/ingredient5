@@ -8,13 +8,13 @@
 </section>
 
 <section class="recipes-list">
-    {% if not recipe_list %}
+    {% if not bookmarked_recipe %}
     <div class="empty-cookbook">
         <p>Oh, your cookbook is still empty!</p>
         <p>Go to the recipes section and add dishes to your cookbook.</p>
     </div>
     {% endif %}
-    {% for recipe in recipe_list %}
+    {% for recipe in bookmarked_recipe %}
     <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
             <img src="{{ recipe.recipe_image.url }}" class="recipes-list-photo" alt="Photo of the meal" />
@@ -43,10 +43,10 @@
             </span>
             {% endif %}
 
-            <form action="{% url 'remove_bookmark' recipe.slug %}" method="POST" class="remove-cookbook">
+            <form action="{% url 'remove_bookmark' recipe.id %}" method="POST" class="remove-cookbook">
                 {% csrf_token %}
                 <label for="remove-button">Remove</label>
-                <button type="submit" name="recipe_id" value="{{recipe.slug}}" id="remove-cookbook-button"
+                <button type="submit" name="recipe_id" value="{{recipe.id}}" id="remove-cookbook-button"
                     class="remove-button">
                     <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
                 </button>

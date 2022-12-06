@@ -88,22 +88,28 @@ class CookbookList(generic.ListView):
     paginate_by = 12
 
 
+def get_cookbook(request):
+    bookmarked_recipe = Recipe.objects.filter(bookmarks=request.user)
+    return render(request, 'cookbook.html', {
+        "bookmarked_recipe": bookmarked_recipe})
+
+
 class RecipeBookmark(View):
 
-    def post(self, request, slug, *args, **kwargs):
-        recipe = get_object_or_404(Recipe, slug=slug)
+    def post(self, request, id, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, id=id)
         if recipe.bookmarks.filter(id=request.user.id).exists():
             recipe.bookmarks.remove(request.user)
         else:
             recipe.bookmarks.add(request.user)
 
-        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 class BookmarkRemove(View):
 
-    def post(self, request, slug, *args, **kwargs):
-        recipe = get_object_or_404(Recipe, slug=slug)
+    def post(self, request, id, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, id=id)
         recipe.bookmarks.remove(request.user)
 
         return HttpResponseRedirect(reverse('cookbook_list'))
