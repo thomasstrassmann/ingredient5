@@ -4,12 +4,12 @@
 {% block content %}
 <section class="recipes-intro">
     <h1>The most delicious recipes are just waiting for you!</h1>
-    <p class="instruction-note">All recipes assume that the basics of any kitchen are present, such as water, 
-        oil, butter, salt, pepper, flour, sugar etc. Furthermore, each cuisine requires typical spices 
+    <p class="instruction-note">All recipes assume that the basics of any kitchen are present, such as water, broth, 
+        oil, butter, salt, pepper, flour, sugar etc. Furthermore, each cuisine requires typical spices
         of the region.</p>
     <p>Explore the list or filter by cuisine.</p>
     <form method="GET" action="." class="form-category">
-        {% csrf_token %} 
+        {% csrf_token %}
         <select name="filter" class="select">
             <option value="0">All</option>
             <option value="1">European</option>
@@ -28,46 +28,47 @@
     {% for recipe in recipe_list %}
     <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
-            <img src="{{ recipe.recipe_image.url }}" class="recipes-list-photo"
-                alt="Photo of the meal" />
+            <img src="{{ recipe.recipe_image.url }}" class="recipes-list-photo" alt="Photo of the meal" />
             <h3>{{ recipe.title }}</h3>
         </a>
-        {% if recipe.type == 0 %}
-        <p>Unassignable</p>
-        {% elif recipe.type == 1 %}
-        <p>European</p>
-        {% elif recipe.type == 2 %}
-        <p>Asian</p>
-        {% elif recipe.type == 3 %}
-        <p>Arabic</p>
-        {% elif recipe.type == 4 %}
-        <p>African</p>
-        {% else %}
-        <p>North-/Southamerican</p>
-        {% endif %}
+        <div class="recipe-excerpt-infos">
+            {% if recipe.type == 0 %}
+            <p>Unassignable</p>
+            {% elif recipe.type == 1 %}
+            <p>European</p>
+            {% elif recipe.type == 2 %}
+            <p>Asian</p>
+            {% elif recipe.type == 3 %}
+            <p>Arabic</p>
+            {% elif recipe.type == 4 %}
+            <p>African</p>
+            {% else %}
+            <p>North-/Southamerican</p>
+            {% endif %}
 
-        </a>
-        {% if recipe.vegetarian %}
-        <span class="vegetarian">
-            <p>Vegetarian</p>
-            <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
-        </span>
-        {% endif %}
+            </a>
+            {% if recipe.vegetarian %}
+            <span class="vegetarian">
+                <p>Vegetarian</p>
+                <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
+            </span>
+            {% endif %}
+        </div>
     </div>
     {% endfor %}
 </section>
 
-    {% if is_paginated %}
-    <nav aria-label="Navigation" class="nav-pagination">
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+{% if is_paginated %}
+<nav aria-label="Navigation" class="nav-pagination">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
 
 {% endif %}
 {%endblock%}
