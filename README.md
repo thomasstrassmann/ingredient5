@@ -2,7 +2,7 @@
 ## The most delicious and simple dishes - with only 5 ingredients
 
 
-![Overview of Ingredient5](./ "Overview of Ingredient5")
+![Overview of Ingredient5](./static/img/documentation/overview_readme.png  "Overview of Ingredient5")
 
 [Click here for the full website access]()
 
@@ -69,7 +69,7 @@ What can not be implemented within the project, just because of lack of time?
 * Users will not have the possibility to reset the password at first.
 * Excessive filtering options in the recipe overview will be reduced to a minimum for the time being.
 * The number of recipes will probably be 20 - 25 maximum. 
-* Users will not yet be able to pay online, but a fictitious invoice will be included in the mail. 
+* Users will not yet be able to pay online, but a fictitious invoice will be in the mail. 
 
 The scope, in terms of content, will stretch over 9 HTML pages.
 * index.html
@@ -80,7 +80,7 @@ The scope, in terms of content, will stretch over 9 HTML pages.
 * recipes_detail.html
 * cookbook.html
 * workshop.html 
-* 404 page
+* 404 page (default django 404 page)
 
 Here, further pages are omitted too due to time constraints. 
 How the individual pages are composed is outlined in the structure section below. 
@@ -121,15 +121,53 @@ The app logo was created with the Adobe Express. The corresponding green should 
 
 ![Logo](./static/img/documentation/final-logo.png "Logo")
 
-Google Fonts was used for the typography and the icons. The font "Bebas Neue" is used for headlines and titles, the font "Ubuntu" is used for everything else.
+Google Fonts was used for the typography. The font "Bebas Neue" is used for headlines and titles, the font "Ubuntu" is used for everything else. The icons in the app are also from Google (Google Icons). All content from Google is not provided via a CDN, but has been downloaded. 
 
 ## Agile Development
 
 The entire project was developed in an agile manner. Particularly noteworthy is the sprint board (git hub project), on which the user stories and their status were recorded. For better traceability, the project was set to public. 
 
-The user stories developed in advance were: 
+To make it clearer, the user stories were divided into epics (unfortunately not visible in the sprint). For the sake of completeness, the epics with the corresponding stories are listed here once again. 
+
+### Admin Epic:
+**Introduction:**
+
+In the following, we will first outline what the biggest problems and challenges for the admin are and how they are solved. In addition, we will consider how the starting position can also be improved sustainably for the admin and how the right foundation can be laid. 
+
+The admin is author, control unit and contact person in one for the ingredients community and therefore has many requirements. All requirements must therefore be clearly manageable in the backend area and without major technical knowledge. 
+
+Therefore, different panels for these areas are created in the admin area and filterable settings are created so that the search is faster and more efficient. Furthermore, it is important that there are not too many actions for comments, workshops or recipes to keep it simple. 
+
+**Goals & Outcomes:**
+
+Even relatively new employees find their way around the backend within a few days. Creating new recipes is very quick, as is checking and approving comments. 
+
+Clear **user acceptance criteria** are generally: simplicity, structuredness, great design, workshops as an experience. This is the only way Ingredients can establish itself as a source of cooking ideas. 
+
+In addition, all information on workshops can be called up in this control center in order to prepare optimally. 
+
+The user stories developed for the admin were:
+
 * As an admin (employee of ingredient5), I would like to create recipes so that the users can explore the recipes.
 * As an admin (employee of ingredient5), i would like to approve comments so that no inappropiate comments are on the site.
+* As an admin (employee of ingredient5), i would like to get an overview of the workshop participants so that everything can be prepared accordingly.
+
+### User Epic:
+**Introduction:**
+
+In this section, we will first outline what the biggest problems and challenges for the users are and how they are solved. The user is the linchpin of the app and is therefore always brought to the fore during development. User experience and design must therefore never be neglected and are continuously improved. 
+
+
+**Goals & Outcomes:**
+
+One of the most important measures and goals is to create an attractive index page that attracts users. To increase the registration rate, all content and functions are only accessible with an account. 
+
+The menu navigation as well as the CRUD operations are self-explanatory and no problem even for inexperienced internet users. 
+
+Great recipes make you want more, which should increase the registration rate of the workshops and thus also the turnover. 
+
+The user stories developed for the user were:
+
 * As a site user, I want the ability to create an account, so that I can comment on recipes and create my own personal cooking book.
 * As a site user, I want to see the recipes with the according comments, so that I can get new cooking ideas.
 * As a user, I want to be able to comment on a recipe so that I can give feedback to the author and discuss it with other members.
