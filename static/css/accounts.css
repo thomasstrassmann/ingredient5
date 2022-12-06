@@ -1,12 +1,13 @@
 /* Login page, signup page */
 .form {
     width: 100%;
-    min-height: 57vh;
+    min-height: 66vh;
     top: 12vh;
     position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 6vh;
+    padding-top: 2%;
     flex-direction: column;
 }
 
@@ -17,17 +18,44 @@
 .login,
 .signup {
     background-color: #18c787;
-    width: 50%;
     min-height: 30vh;
     border: 2px solid;
     flex-direction: column;
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    align-items: flex-end;
     margin: 1% 0 3%;
     gap: 2vh;
     padding: 2%;
+    width: 50%;
+    align-items: center;
+    font-size: 2vw;
+}
+
+.login p, .signup p {
+    width: 50%;
+    text-align: center;
+}
+
+.login p input, .signup p input{
+    width: 100%;
+    text-align: center;
+    font-size: 2vw;
+}
+
+@media (max-width:768px) {
+    .login p, .signup p {
+        width: 80%;
+        text-align: center;
+    }
+
+    .login, .signup {
+        width: 80%;
+    }
+}
+
+#id_remember {
+    width: 10%;
 }
 
 .form-submit,
@@ -43,29 +71,11 @@
     font-size: 2vw;
 }
 
-/* @media (max-width:400px) {
-    .login, .signup {
-        width: 80%;
-    }
-} */
-
-@media (max-width: 768px) {
-
-    .login,
-    .signup {
-        width: 80%;
-        align-items: center;
-    }
-
-    .login label,
-    .signup label {
-        display: block;
-        text-align: center;
-    }
-
-    .errorlist li{
-        text-align: center;
-    }
+.login label,
+.signup label {
+    display: block;
+    text-align: center;
+    margin: 2%;
 }
 
 .errorlist {
@@ -75,6 +85,7 @@
 
 .errorlist li {
     display: block;
+    text-align: center;
 }
 
 label[for="id_remember"]{
