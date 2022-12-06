@@ -195,9 +195,9 @@ footer {
     border-bottom: 4px solid #38FA46;
 }
 
-@media (max-width:600px) {
+@media (max-width:768px) {
     footer {
-        height: 18vh;
+        height: 12vh;
     }
 }
 
