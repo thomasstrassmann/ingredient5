@@ -393,7 +393,10 @@ colors:
 }
 
 .workshop-form input, .workshop-form select {
+    border: 1px solid black;
     font-size: 3vw;
+    text-align: center;
+    width: 100%;
     font-family: 'Ubuntu';
 }
 
