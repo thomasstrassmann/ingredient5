@@ -253,14 +253,20 @@ To test accessibility and SEO, Lighthouse was used.
 The test results of Best Practices are slightly worse than those of Accessibility and SEO, because images with somewhat low resolution were also used (especially in the Recipes section). Of course, this has to do with the fact that the images should fit the dishes and only these were available. If time had allowed, the search for high-resolution images would be something to look into. 
 
 
-
-
 Furthermore, the W3C Validator was used to ensure that the HTML and CSS file are valid. Since the template engine of Django causes problems with validation, the Django logic was removed. That is: All template tags were removed and all src and href values were replaced with an "#". You can find the according HTML files under ./templates/tests. The clean HTML files are free of errors and warnings.
 
 Testing the CSS and JS files was much easier since there were no templates implemented. There were no errors here, only a missing semicolon in the JavaScript file for the hamburger menu. 
 
+All python files comply with the PEP 8 guideline, the only exception being a small paragraph within ingredient5/settings.py, where a few lines are too long. The reason for this is that these lines already appear in the default state and are intended to be so. Therefore, these lines are not touched to ensure the functionality of the app.  
 
-No fatal errors exist anymore at this moment. JShint was used to find errors in JavaScript code. In the corrected version there are currently only hints that some techniques can only be used with ES6, so the code is valid.
+However, the manual testing was not over yet... The functionality of the site was performed by several people, on several devices, with several users logged in. 
+
+Small errors appeared at first. For example, the error notifications at login and signup were not considered, causing graphic errors and fields flowing out of the form. This was subsequently corrected in the corresponding CSS files. 
+
+A major error within the business logic was only noticed by using multiple users, because the cookbook was the same for all users. Here, a crucial error had crept into the view, which however could also be fixed with a few lines of code. 
+
+An error that still remains is the sending of automatic mails in dev-mode (debug=True), because here a 500 error code appears. Here a suitable solution was searched for a long time, however, so far remained unclear, why the error appears. Since the function is fully functional when the page is live (debug=False), this is rather negligible. 
+
 
 ## Deployment 
 
