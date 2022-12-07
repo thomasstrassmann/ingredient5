@@ -14,7 +14,7 @@
     <p>Meet new, ambitious chefs and share your experiences.</p>
     <p>Get your seat now for only <span class="user-display">$14.99</span> instead of $24.99.</p>
 
-    <form action="" method="POST" class="workshop-form">
+    <form action="." method="POST" class="workshop-form">
         {% csrf_token %}
         {{ appointment_form }}
         <input type="Submit" value="Book workshop now!" class="workshop-button">
@@ -33,15 +33,17 @@
         <div class="personal-workshop-date">
             <p>Date: {{ appointment.day }}</p>
             <p>Time: {{ appointment.time }}</p>
-            <form action="{% url 'remove_appointment' appointment_id=appointment.id %}" method="POST" class="remove-appointment">
+            <form action="{% url 'remove_appointment' appointment_id=appointment.id %}" method="POST"
+                class="remove-appointment">
                 {% csrf_token %}
                 <label for="remove-appointment-button">Remove</label>
-                <button type="submit" name="appointment_id" value="{{appointment.id}}" id="remove-appointment-button" class="remove-button">
+                <button type="submit" name="appointment_id" value="{{appointment.id}}" id="remove-appointment-button"
+                    class="remove-button">
                     <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">
                 </button>
             </form>
         </div>
-    {% endfor%}
+        {% endfor%}
     </div>
     {% endif%}
 </section>

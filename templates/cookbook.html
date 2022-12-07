@@ -17,7 +17,7 @@
     {% for recipe in bookmarked_recipe %}
     <div class="recipe-excerpt">
         <a href="{% url 'recipe_detail' recipe.slug  %}">
-            <img src="{{ recipe.recipe_image.url }}" class="recipes-list-photo" alt="Photo of the meal" />
+            <img src="{{ recipe.recipe_image.url }}" class="recipes-list-photo" alt="Photo of the meal">
             <h3>{{ recipe.title }}</h3>
         </a>
         <div class="recipe-excerpt-infos">
@@ -35,17 +35,15 @@
             <p>North-/Southamerican</p>
             {% endif %}
 
-            </a>
             {% if recipe.vegetarian %}
             <span class="vegetarian">
-                <p>Vegetarian</p>
+                Vegetarian
                 <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
             </span>
             {% endif %}
 
             <form action="{% url 'remove_bookmark' recipe.id %}" method="POST" class="remove-cookbook">
                 {% csrf_token %}
-                <label for="remove-button"></label>
                 <button type="submit" name="recipe_id" value="{{recipe.id}}" id="remove-cookbook-button"
                     class="remove-button">Remove
                     <img src="{% static 'img/icons/delete.svg' %}" alt="delete here">

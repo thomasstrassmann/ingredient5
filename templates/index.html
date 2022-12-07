@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<section id="hero" aria-label="hero section">
+<div id="hero" aria-label="hero section">
     <div id="hero-img" style="background-image: url('{% static 'img/hero.jpg' %}')">
         <div class="hero-filter hero-effect">
             <div id="hero-text">
@@ -11,15 +11,15 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<section class="introduction">
+<div class="introduction">
     <article class="headline">
-        <h2>The most simple, delicious and ingenious dishes</h1>
-            <p>that will make you look like a star chef!</p>
+        <h2>The most simple, delicious and ingenious dishes</h2>
+        <p>that will make you look like a star chef!</p>
     </article>
 
-    <article class="teaser">
+    <div class="teaser">
         <div class="teaser-text">
             <p><span class="text-center">What drives us at Ingredients?</span>
                 We want to deliver the best cooking experience to your home, instead of cheap fast food!<br><br>
@@ -31,17 +31,17 @@
         </div>
         <div>
             <!-- Photo by Jimmy Dean: https://unsplash.com/photos/my1mDMraGf0 -->
-            <img src="{% static 'img/teaser.jpg' %}" alt="A couple cooking" />
+            <img src="{% static 'img/teaser.jpg' %}" alt="A couple cooking">
         </div>
-    </article>
+    </div>
 
-    <article class="banner-login">
+    <div class="banner-login">
         <!-- Photo by Pablo Merchán Montes: https://unsplash.com/photos/Orz90t6o0e4 -->
         <div class="background-banner" style="background-image: url('{% static 'img/banner-login.jpg' %}')">
             <div class="login-container">
                 <a href="{% url 'account_login' %}" aria-label="Login page">Lets's cook!</a>
             </div>
         </div>
-    </article>
-</section>
+    </div>
+</div>
 {%endblock%}

@@ -30,7 +30,7 @@
 
     {% if recipe.vegetarian %}
     <span class="vegetarian">
-      <p>Vegetarian</p>
+      Vegetarian
       <img src="{% static 'img/icons/veggie.svg' %}" alt="vegetarian">
     </span>
     {% endif %}
@@ -38,7 +38,7 @@
   </div>
 </section>
 
-<section class="recipe-content">
+<div class="recipe-content">
   <article class="recipe-content-container">
     <div class="ingredients">
       <h4>Ingredients</h4>
@@ -46,7 +46,7 @@
     </div>
     <div class="recipe-instructions">
       <p>{{ recipe.content | safe }}</p>
-   </div>
+    </div>
 
     {% if user.is_authenticated %}
     <form action="{% url 'recipe_bookmark' recipe.id %}" method="POST" class="bookmark-section">
@@ -79,25 +79,25 @@
       {% endwith %}
     </div>
 
-        {% for comment in comments %}
-        <div class="comments-display">
-          <p><strong>{{ comment.username }}</strong> wrote:</p>
-          <p class="comments-message">{{ comment.message }}</p>
-          <p class="comments-message-published">Published: {{ comment.created }}</p>
-        </div>
-        {% endfor %}
-        
-      {% if commented %}
-      <div class="comments-post">
-        <p class="feedback">
-          We are currently checking your comment, please wait a few minutes for approval!
-        </p>
-      {% else %} 
+    {% for comment in comments %}
+    <div class="comments-display">
+      <p><strong>{{ comment.username }}</strong> wrote:</p>
+      <p class="comments-message">{{ comment.message }}</p>
+      <p class="comments-message-published">Published: {{ comment.created }}</p>
+    </div>
+    {% endfor %}
+
+    {% if commented %}
+    <div class="comments-post">
+      <p class="feedback">
+        We are currently checking your comment, please wait a few minutes for approval!
+      </p>
+      {% else %}
       {% if user.is_authenticated %}
 
       <h3>Post your comment right here:</h3>
       <form method="post" class="comments-post-form">
-        {{ comment_form }} 
+        {{ comment_form }}
         {% csrf_token %}
         <button type="submit">Submit</button>
       </form>
@@ -106,5 +106,5 @@
     </div>
 
   </article>
-</section>
+</div>
 {% endblock content %}
