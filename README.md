@@ -15,7 +15,8 @@
 4. [Features](#features)
 5. [Testing](#testing)
 6. [Deployment](#deployment) 
-7. [Credits / attributes](#credits) 
+7. [Notes](#notes) 
+8. [Credits / attributes](#credits) 
 
 
 
@@ -298,6 +299,9 @@ The suite consists of 11 tests, all of which pass at the time of project release
 ## Deployment 
 
 [You can access the website right here](https://)
+
+
+## Notes
 
 
 ## Credits
