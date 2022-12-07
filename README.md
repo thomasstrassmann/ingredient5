@@ -255,7 +255,7 @@ The test results of Best Practices are slightly worse than those of Accessibilit
 
 
 
-Furthermore, the W3C Validator was used to ensure that the HTML and CSS file are valid. Since the template engine of Django causes problems with validation, the Django logic was removed. That is: {% load static %} was removed and all src and href values were replaced with a "#". 
+Furthermore, the W3C Validator was used to ensure that the HTML and CSS file are valid. Since the template engine of Django causes problems with validation, the Django logic was removed. That is: All template tags were removed and all src and href values were replaced with an "#". You can find the according HTML files under ./templates/tests. The clean HTML files are free of errors and warnings.
 
 
 No fatal errors exist anymore at this moment. JShint was used to find errors in JavaScript code. In the corrected version there are currently only hints that some techniques can only be used with ES6, so the code is valid.
