@@ -306,7 +306,7 @@ The suite consists of 11 tests, all of which pass at the time of project release
 I do not take credit for creating any content on Ingredients. 
 Since time was very limited, external resources had to be used to create the content. One site that helped me is one of my favorites: the German site chefkoch.de. 
 
-The complete content is based on this site and therefore the recipes and the pictures are property of the chefkoch contributors. To make it transpartent and accurate, here is a list of the complete recipes including the URL: 
+The complete content is based on this site and therefore the recipes and the pictures are property of the chefkoch contributors. My part or work was to find the appropriate recipes, break them down to the most important ingredients and translate the content into English. To make it transpartent and accurate, here is a list of the complete recipes including the URL: 
 
 European recipes:
 
