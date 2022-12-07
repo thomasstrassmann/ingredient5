@@ -36,7 +36,7 @@ class RecipeDetail(View):
         bookmarked = False
         if recipe.bookmarks.filter(id=self.request.user.id).exists():
             bookmarked = True
-        
+
         return render(
             request, "recipe_detail.html", {
                 "recipe": recipe,
@@ -48,7 +48,7 @@ class RecipeDetail(View):
                 "bookmarked": bookmarked,
             }
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
@@ -67,7 +67,7 @@ class RecipeDetail(View):
             comment.save()
         else:
             comment_form = CommentForm()
-        
+
         return render(
             request, "recipe_detail.html", {
                 "recipe": recipe,
@@ -113,4 +113,3 @@ class BookmarkRemove(View):
         recipe.bookmarks.remove(request.user)
 
         return HttpResponseRedirect(reverse('cookbook_list'))
-
