@@ -152,6 +152,15 @@ The user stories developed for the admin were:
 * As an admin (employee of ingredient5), i would like to approve comments so that no inappropiate comments are on the site.
 * As an admin (employee of ingredient5), i would like to get an overview of the workshop participants so that everything can be prepared accordingly.
 
+All user stories are must have stories!
+
+The admin stories can be broken down even further into tasks: 
+
+* Create a backend form that allows the admin to add new recipes quickly and easily.
+* Implement the ability to approve comments that are initially locked. 
+* Create a workshop area in the backend where users are assigned to booked workshops. 
+
+
 ### User Epic:
 **Introduction:**
 
@@ -173,37 +182,77 @@ The user stories developed for the user were:
 * As a user, I want to be able to comment on a recipe so that I can give feedback to the author and discuss it with other members.
 * As a site user, I want to have a cookbook of my favorite recipes, so that I do not have to search them every time again.
 * As a user, I want the ability to like (and at the same time bookmark) my favorite recipes so that i can store them in my own virtual cooking book.
-* As a user, I want the ability to book (and cancel) a virtual cooking-workshop, so that I can enhance my cooking skills and interact with other people.
+* As a user, I want the ability to book (and delete) a virtual cooking-workshop, so that I can enhance my cooking skills and interact with other people.
 
+All user stories are must have stories!
+
+
+The resulting tasks look like this: 
+
+* Create an athorization option for any user who wants to sign up.
+* Build an individual comment section for each dish. 
+* Code a comment function
+* Create a personal cookbook for every user
+* Implement the bookmark function to save dishes to the cookbook
+* Code a workshop section with an acoording model, view and template in a separate app 
+
+
+Down below, you can see the sprint board in action during development.
 ![Agile development](./static/img/documentation/agile_development.png "Agile development")
 
 
 
 ## Features
-The following features were a decisive factor during the app creation: 
-* 
-* 
-* 
-* 
-![](./ "")
+The Ingredients app has many features, which will now be examined in more detail below. 
+
+
+The app has only custom css code, which is around a thousand lines long. Highlights are of course the reponsiveness on all devices, a color effect in the hero image, many media queries. Compared to other websites / apps, responsiveness is even more important in the context of cooking, because peopl at the stove look on smartphones and tablets, not on desktop computers.  Bootstrap was not used, because I personally find the styling with flexbox and grid more pleasant and the html files do not have umpteen div nestings. Bootstrap tends to mix styling and structure. 
+
+Another feature are the present and working CRUD operations that the user can perform in the frontend.
+These include: 
+
+* the creation of comments
+* the creation of accounts 
+* the creation of workshop registrations
+* reading comments
+* reading recipes
+* updating the cookbook (by deleting dishes)
+* updating the list of recipes by filtering them
+* deleting recipes from the cookbook 
+* deleting workshops from the personal reminder section  
+
+
+Users also get feedback on almost all CRUD operations, such as when a comment was left, or a workshop was booked. For small CRUD operations (such as adding dishes to the cookbook), this was initially omitted, as it is more distracting than useful in the flow of action, at least in the current version. However, this may become a feature in the future. 
+
+A special feature is also the automatic sending of emails, which was implemented with the help of the built-in send_email function of Django. For this purpose a new gmail account was created especially for ingredients. Down below you can see an example email, which can be improved in the future.
+
+![Email example](./static/img/documentation/email_example.png "Email example")
 
 
 ### Features for the future 
 The following features would be ideas for further development...
-* 
-* 
-* 
-
+* The independent cancellation of workshops. This was not implemented, as this is also related to the fictitious accounting system. Therefore, this is still the task of the admins. 
+* More filtering options of the recipes (for example, whether it is vegetarian or not), or a search bar.  However, since it is "only" 34 dishes for now, a filter option by region is perfectly sufficient. Anything else would be over-engineered.
+* An account setting section. Here users could tell something about themselves and choose an avatar, which would be visible to other users. 
 
 
 ## Testing 
 
-The page and its functionality was tested manually. This was done primarily using Chrome DevTools (Lighthouse), as well as the website http://www.responsinator.com/.
+The page and its functionality was tested manually as well as automatically. For a better overview, these two areas are now treated separately from each other. 
+
+**Manual testing**
+
+Manual testing was done primarily using Chrome DevTools (Lighthouse) and validators for HTML, CSS, JavaScript and Python.
+
 The layout was tested in portrait and landscape mode on the following devices: iPhone SE, iPhone XR, iPhone 12 Pro, Pixel 5, Samsung Galaxy S8+, Surface Pro 7, Surface Duo, Galaxy Fold, Samsung Galaxy A51/71, Nest Hub, Nest Hub Max and common monitors. No display errors were detected. If other devices show any, they would have to be improved afterwards. 
 
 To test accessibility and SEO, Lighthouse was used. 
 
-![Lighthouse report](./assets/uxd/lighthouse-report.png "Lighthouse report")
+![Lighthouse report](./static/img/documentation/lighthouse.png  "Lighthouse report")
+
+The test results of Best Practices are slightly worse than those of Accessibility and SEO, because images with somewhat low resolution were also used (especially in the Recipes section). Of course, this has to do with the fact that the images should fit the dishes and only these were available. If time had allowed, the search for high-resolution images would be something to look into. 
+
+
 
 
 Furthermore, the W3C Validator was used to ensure that the HTML and CSS file are valid. No errors exist anymore at this moment. JShint was used to find errors in JavaScript code. In the corrected version there are currently only hints that some techniques can only be used with ES6, so the code is valid.

@@ -398,6 +398,7 @@ colors:
     text-align: center;
     width: 100%;
     font-family: 'Ubuntu';
+    padding: 0;
 }
 
 .workshop-button {
@@ -408,7 +409,7 @@ colors:
     color: white;
     border-radius: 10px;
     border: 2px solid black;
-    padding: 0 2%;
+    padding: 1% 2%;
     margin: 10% 0;
     cursor: pointer;
 }
