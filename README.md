@@ -83,7 +83,18 @@ The scope, in terms of content, will stretch over 9 HTML pages.
 * 404 page (default django 404 page)
 
 Here, further pages are omitted too due to time constraints. 
-How the individual pages are composed is outlined in the structure section below. 
+How the individual pages are composed is outlined in the structure section next.
+
+As for the scope of the database and what schema is behind it, can be well described by the following figure.
+
+![Data schema](./static/img/documentation/data_schema.png "Data schema")
+
+Ingredients is divided into two Django apps: Recipes and Booking. 
+
+Recipes consists of the Recipe and Comment models, where Recipe affects all pages related to the overall view of recipes, the detailed view of recipes and the cookbook. Comment controls only the comment section part of the recipe detail view. 
+
+The Booking app is a separate branch and therefore it's model (Workshop) is independent from the other models and acts with the fields listed above. It is only tasked to support the workshop page and logic, nothing more and nothing less. 
+
 
 --- 
 ### Structure 
@@ -189,7 +200,7 @@ All user stories are must have stories!
 
 The resulting tasks look like this: 
 
-* Create an athorization option for any user who wants to sign up.
+* Create an authorization option for any user who wants to sign up.
 * Build an individual comment section for each dish. 
 * Code a comment function
 * Create a personal cookbook for every user
@@ -272,7 +283,16 @@ An error that still remains is the sending of automatic mails in dev-mode (debug
 
 In addition to manual testing of the application, a small test suite was also written. However, it must be emphasized that this is not a classic TDD approach and therefore there was no red-green-refactor cycle. The tests were not written in advance, but rather at the same time or afterwards. This is because the size of the project simply allowed this approach. In a larger project, it would also be worthwhile to use test-driven development to save time and resources. 
 
+To make the tests possible in the first place, the postgres database is replaced by the default sqlite3 database that comes with Django. The database configuration is located in the settings.py file in the ingredient5 folder (single location) where it can be changed easily.
 
+First and foremost, the test suites for both apps, i.e. "Recipes" and "Booking", consist of basic tests that: 
+- check the default values of the models for their correctness.
+- make sure that the required fields in the forms are also presupposed.
+- check if the views or the templates are reachable. 
+
+
+The suite consists of 11 tests, all of which pass at the time of project release.
+![Test suite](./static/img/documentation/tests.png  "Test suite")
 
 
 ## Deployment 
@@ -281,3 +301,118 @@ In addition to manual testing of the application, a small test suite was also wr
 
 
 ## Credits
+**Recipe content**
+
+I do not take credit for creating any content on Ingredients. 
+Since time was very limited, external resources had to be used to create the content. One site that helped me is one of my favorites: the German site chefkoch.de. 
+
+The complete content is based on this site and therefore the recipes and the pictures are property of the chefkoch contributors. To make it transpartent and accurate, here is a list of the complete recipes including the URL: 
+
+European recipes:
+
+
+https://www.chefkoch.de/rezepte/1574651265014378/Serviettenknoedel.html
+
+https://www.chefkoch.de/rezepte/1342861239100533/Tortellini-alla-panna.html
+
+https://www.chefkoch.de/rezepte/975941203236020/Ricotta-Gnocchi.html
+
+https://www.chefkoch.de/rezepte/1066811212153175/Schwedische-Sommersuppe.html
+
+https://www.chefkoch.de/rezepte/79221030372046/Kaesespaetzle.html
+
+https://www.chefkoch.de/rezepte/2657201417258206/Passatelli-Suppeneinlage-aus-Italien.html
+
+https://www.chefkoch.de/rezepte/1106901216798497/Mallorquinische-Knoblauchsuppe.html
+
+https://www.chefkoch.de/rezepte/596101159262249/Meeresfruechtesalat-mit-Weissweinessig.html
+
+
+Asian recipes:
+
+
+https://www.chefkoch.de/rezepte/2813211433323231/Dal-indisches-Linsengericht.html
+
+https://www.chefkoch.de/rezepte/353751120668411/Bakso-indonesische-Suppe.html
+
+https://www.chefkoch.de/rezepte/1810651293294338/Gruene-Bohnen-mit-Sesamdressing.html
+
+https://www.chefkoch.de/rezepte/322441114215643/Japanische-kalte-Buchweizennudeln-mit-Dip.html
+
+https://www.chefkoch.de/rezepte/1206351226352292/Scampi-in-scharfer-Kokosnuss-Sauce.html
+
+https://www.chefkoch.de/rezepte/677721170159832/Bananencurry.html
+
+https://www.chefkoch.de/rezepte/656681167383995/Pinkantes-Moong-Dal.html
+
+
+Arabic recipes:
+
+
+
+https://www.chefkoch.de/rezepte/2365241375652232/Shakshuka.html
+
+https://www.chefkoch.de/rezepte/1287271234164583/Kichererbsensalat-mit-getrockneten-Tomaten-und-Feta.html
+
+https://www.chefkoch.de/rezepte/3523631525635946/Libanesische-Kartoffeln-mit-Koriander-Kreuzkuemmel-und-Chili.html
+https://www.chefkoch.de/rezepte/2001941324053248/Usbekische-Samsa-oder-Samsy.html
+
+https://www.chefkoch.de/rezepte/1130871219489506/Rote-Nudelsuppe.html
+
+https://www.chefkoch.de/rezepte/1345641239312534/Khorescht-e-Gheymeh.html
+
+https://www.chefkoch.de/rezepte/2001961324053940/Beshbarmak.html
+
+
+African recipes:
+
+
+
+https://www.chefkoch.de/rezepte/3347651497529252/Afrikanisches-Stew.html
+
+https://www.chefkoch.de/rezepte/2036131329920039/Suesskartoffelstampf-mit-Limone-und-Gewuerzaromen.html
+
+https://www.chefkoch.de/rezepte/1735881282587859/Mango-Chili-Relish.html
+
+https://www.chefkoch.de/rezepte/428791133906816/Afrikanischer-Eintopf.html
+
+https://www.chefkoch.de/rezepte/2262131361561169/Matapa-Kohleintopf-mit-Erdnuessen-und-Kokosnussmilch.html
+
+https://www.chefkoch.de/rezepte/3348371497623382/Foul-Medammas.html
+
+
+North-/Southamerican recipes: 
+
+
+
+https://www.chefkoch.de/rezepte/3094091462129184/Schnelles-Pulled-Chicken.html
+
+https://www.chefkoch.de/rezepte/3005031453373187/Grilled-Cheese-Sandwich-mit-Bacon-und-Spiegelei.html
+
+https://www.chefkoch.de/rezepte/2491001391614525/Bohneneintopf-kanadische-Art.html
+
+https://www.chefkoch.de/rezepte/888591194428232/Argentinisches-Rodeo.html
+
+https://www.chefkoch.de/rezepte/743621176974335/Ceviche-de-Camarones.html
+
+https://www.chefkoch.de/rezepte/34011009469977/Fische-Bahia.html
+
+
+**Code-related**
+
+At this point I would first like to mention the course content from CodeInstitute. Here the DjangoBlog and HelloDjango project were crucial idea givers and templates. The models and views of the Recipes app are partly based on these projects. 
+
+In addition, there are other sources to mention: 
+* The hamurger menu is inspired by Miguel Nunez, source: https://www.youtube.com/watch?v=flItyHiDm7E)
+* The model of the Booking app is a modified, yet own model, which is inspired from the following article by John Abdsho Khosrowabadi: https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
+* The use of the send_mail function was encouraged by Codemy.com, in particular by the following video: https://www.youtube.com/watch?v=rHZwE1AK1h8&t=490s
+
+**Images**
+
+As already mentioned, the pictures of the recipes are due to the users of chefkoch or chefkoch itself. 
+Other image sources: 
+
+* Jimmy Dean: https://unsplash.com/photos/my1mDMraGf0
+* Pablo Merchán Montes: https://unsplash.com/photos/Orz90t6o0e4
+* adilsphotography: https://unsplash.com/photos/gmo6Ok9G0U8
+
