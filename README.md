@@ -117,7 +117,7 @@ The color palette consists of the main color #38FA46 and some according compound
 
 ![Color palette](./static/img/documentation/color_palette.png "Color palette")
 
-The app logo was created with the Adobe Express. The corresponding green should reflect the targeted healthy diet. 
+The app logo was created with the Adobe Express. The corresponding green should reflect the targeted healthy diet. To clear up any confusion: The figurative mark replaces the "S" with a 5, but the word mark has this S to make it clear that the name is to be understood in the plural and not "Ingredient Five". 
 
 ![Logo](./static/img/documentation/final-logo.png "Logo")
 
@@ -206,7 +206,7 @@ Down below, you can see the sprint board in action during development.
 The Ingredients app has many features, which will now be examined in more detail below. 
 
 
-The app has only custom css code, which is around a thousand lines long. Highlights are of course the reponsiveness on all devices, a color effect in the hero image, many media queries. Compared to other websites / apps, responsiveness is even more important in the context of cooking, because peopl at the stove look on smartphones and tablets, not on desktop computers.  Bootstrap was not used, because I personally find the styling with flexbox and grid more pleasant and the html files do not have umpteen div nestings. Bootstrap tends to mix styling and structure. 
+The app has only custom css code, which is around a thousand lines long. Highlights are of course the reponsiveness on all devices, a color effect in the hero image and many media queries. Compared to other websites / apps, responsiveness is even more important in the context of cooking, because people at the stove look on smartphones and tablets, not on desktop computers.  Bootstrap was not used, because I personally find the styling with flexbox and grid more pleasant and the html files do not have umpteen div nestings. Bootstrap tends to mix styling and structure. 
 
 Another feature are the present and working CRUD operations that the user can perform in the frontend.
 These include: 
@@ -266,6 +266,13 @@ Small errors appeared at first. For example, the error notifications at login an
 A major error within the business logic was only noticed by using multiple users, because the cookbook was the same for all users. Here, a crucial error had crept into the view, which however could also be fixed with a few lines of code. 
 
 An error that still remains is the sending of automatic mails in dev-mode (debug=True), because here a 500 error code appears. Here a suitable solution was searched for a long time, however, so far remained unclear, why the error appears. Since the function is fully functional when the page is live (debug=False), this is rather negligible. 
+
+
+**Automatic testing**
+
+In addition to manual testing of the application, a small test suite was also written. However, it must be emphasized that this is not a classic TDD approach and therefore there was no red-green-refactor cycle. The tests were not written in advance, but rather at the same time or afterwards. This is because the size of the project simply allowed this approach. In a larger project, it would also be worthwhile to use test-driven development to save time and resources. 
+
+
 
 
 ## Deployment 

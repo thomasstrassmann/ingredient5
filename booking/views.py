@@ -4,9 +4,11 @@ from django.http import HttpResponseRedirect
 from .models import Workshop
 from django.core.mail import send_mail
 from .forms import AppointmentForm
+from django.contrib.auth.decorators import login_required
 import os
 
 
+@login_required
 def workshop(request):
     if request.method == 'POST':
         user = request.user

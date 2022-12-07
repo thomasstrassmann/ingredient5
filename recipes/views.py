@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Recipe, Comment
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 
 def get_index(request):
@@ -81,13 +82,7 @@ class RecipeDetail(View):
         )
 
 
-class CookbookList(generic.ListView):
-    model = Recipe
-    queryset = Recipe.objects.filter(bookmarks=True).order_by('-created')
-    template_name = 'cookbook.html'
-    paginate_by = 12
-
-
+@login_required
 def get_cookbook(request):
     bookmarked_recipe = Recipe.objects.filter(bookmarks=request.user)
     return render(request, 'cookbook.html', {
