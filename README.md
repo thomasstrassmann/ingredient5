@@ -4,7 +4,8 @@
 
 ![Overview of Ingredient5](./static/img/documentation/overview_readme.png  "Overview of Ingredient5")
 
-[Click here for the full website access]()
+[Click here for the full website access](https://ingredient5.herokuapp.com/)
+
 
 
 
@@ -289,6 +290,8 @@ A major error within the business logic was only noticed by using multiple users
 
 An error that still remains is the sending of automatic mails in dev-mode (debug=True), because here a 500 error code appears. Here a suitable solution was searched for a long time, however, so far remained unclear, why the error appears. Since the function is fully functional when the page is live (debug=False), this is rather negligible. 
 
+Two more unfixed bugs appear on some iphone smartphones, which are not critical, but cannot be fixed quickly. The form in the workshop and the remove button in the cookbook are not displayed correctly. It was tried to fix it with -webkit-appearance: none; appearance: none; in the appropriate elements, with moderate success. Here would have to be further searched for a fix, with which I am 100% satisfied. 
+
 
 **Automatic testing**
 
@@ -308,10 +311,60 @@ The suite consists of 11 tests, all of which pass at the time of project release
 
 ## Deployment 
 
-[You can access the website right here](https://)
+After the Django project and apps were created, the project was deployed directly to Heroku in order to be able to plan ahead and spend less time on it in the end. The individual steps were: 
+
+* installation of gunicorn 
+* installation of the other libraries,including psycopg2 and cloudinary_storage 
+* update of requirements.txt 
+* enumeration of all apps in the settings and the migration
+* creation of the herokuapp 
+* database (elephantSQL) is connected to heroku (config vars)
+* all sensitive information is stored in env.py and is also stored on heroku
+* settings.py is adapted to the new database and migrations are done 
+* cloudinary was set correctly by adding the cloudinary url to env.py and config vars and settings.py was 
+updated (installed apps, static files, templates directory, allowed hosts)
+* creation of the procfile (gunicorn)
+* manual deployment on heroku
+
+[You can access the website right here](https://ingredient5.herokuapp.com/)
 
 
 ## Notes
+
+**Security features**
+
+In the course of the creation attention was paid to security at all times. All sensitive information is stored in environment variables and at no time was the project deployed to Heroku with debug=True. No critical information was made public like this. 
+
+**Requirements**
+asgiref==3.5.2
+
+cloudinary==1.30.0
+
+coverage==6.5.0
+
+dj-database-url==0.5.0
+
+dj3-cloudinary-storage==0.0.6
+
+Django==3.2.16
+
+django-allauth==0.51.0
+
+gunicorn==20.1.0
+
+oauthlib==3.2.2
+
+psycopg2==2.9.5
+
+PyJWT==2.6.0
+
+python3-openid==3.2.0
+
+pytz==2022.6
+
+requests-oauthlib==1.3.1
+
+sqlparse==0.4.3
 
 
 ## Credits
