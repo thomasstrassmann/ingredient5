@@ -5,14 +5,17 @@
 
 <section class="workshop">
     {% if booked %}
-    <h2>Thank you <span class="user-display">{{ user }}</span> for booking an unforgettable workshop!</h2>
-    <p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
-    <p>We are very much looking forward to seeing you! Let's cook something great! </p>
+    <div class="booked-message">
+        <h2>Thank you <span class="user-display">{{ user }}</span> for booking an unforgettable workshop!</h2>
+        <p>We will send you an email with the confirmation, the google-meet link and the invoice.</p>
+        <p>We are very much looking forward to seeing you! Let's cook something great! </p>
+    </div>
     {% else %}
     <h1>Book your viritual cooking workshop right now!</h1>
     <p>Learn new delicious recipes that will blow your guests away!</p>
     <p>Meet new, ambitious chefs and share your experiences.</p>
     <p>Get your seat now for only <span class="user-display">$14.99</span> instead of $24.99.</p>
+
 
     <form action="." method="POST" class="workshop-form">
         {% csrf_token %}

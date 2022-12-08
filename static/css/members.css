@@ -429,3 +429,7 @@
     color: #38FA46;
     display: inline;
 }
+
+.booked-message {
+    min-height: 73vh;
+}
