@@ -51,6 +51,12 @@
 
     .login, .signup {
         width: 80%;
+        font-size: 5vw;
+    }
+
+    .login p input, .signup p input, .form-submit,
+    .sign-out{
+        font-size: 5vw;
     }
 }
 
@@ -60,7 +66,7 @@
 
 .form-submit,
 .sign-out {
-    width: 30%;
+    width: 40%;
     padding: 1% 5%;
     border-radius: 10px;
     border: 2px solid black;
@@ -69,6 +75,7 @@
     font-weight: bold;
     color: white;
     font-size: 2vw;
+    margin: 2% 0;
 }
 
 .login label,
