@@ -241,6 +241,10 @@
     cursor: pointer;
 }
 
+.bookmark-hint{
+    font-size: 2vw;
+}
+
 .comments {
     width: 80%;
     margin: 15% auto;
@@ -352,6 +356,14 @@
 
 .remove-button img {
     width: 3vw;
+}
+
+.remove-feedback {
+    position: relative;
+    top: 12vh;
+    text-align: center;
+    color: #38FA46;
+    margin: 2%;
 }
 
 /* Workshop page */

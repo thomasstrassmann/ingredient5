@@ -4,6 +4,7 @@ from django.views import generic, View
 from .models import Recipe, Comment
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def get_index(request):
@@ -107,4 +108,5 @@ class BookmarkRemove(View):
         recipe = get_object_or_404(Recipe, id=id)
         recipe.bookmarks.remove(request.user)
 
+        messages.success(request, "Recipe removed!")
         return HttpResponseRedirect(reverse('cookbook_list'))

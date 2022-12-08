@@ -7,6 +7,13 @@
     <div class="recipe-hero-container">
       <div class="recipe-hero-text">
         <h1>{{ recipe.title }}</h1>
+        <div class="bookmark-hint">
+          {% if bookmarked %}
+          <p>This recipe is bookmarked!</p>
+          {% else %}
+          <p>Not bookmarked yet!</p>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -49,7 +56,7 @@
     </div>
 
     {% if user.is_authenticated %}
-    <form action="{% url 'recipe_bookmark' recipe.id %}" method="POST" class="bookmark-section">
+    <form action="{% url 'recipe_bookmark' recipe.id %}" method="POST" class="bookmark-section" id="myBtn">
       {% csrf_token %}
       {% if bookmarked %}
       <label for="delete">Delete bookmark</label>
