@@ -347,6 +347,8 @@
     font-size: 2vw;
     display: flex;
     align-items: center;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .remove-cookbook label[for],
@@ -389,6 +391,8 @@
     padding: 2%;
     border: 4px solid #a218c7;
     gap: 1vw;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .workshop-form input, .workshop-form select {
@@ -398,6 +402,8 @@
     width: 100%;
     font-family: 'Ubuntu';
     padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .workshop-button {

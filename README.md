@@ -57,7 +57,7 @@ To structure the content and make the data retrievable, there are different mode
 ---
 ### Scope 
 
-To describe the scope of the Ingridient5 app, the key features will be discussed first. 
+To describe the scope of the Ingredients app, the key features will be discussed first. 
 
 Users should be able to log in with a username and thereby create a personal account, which is necessary for the personalizing of the content. 
 However, this also means that the other content is behind this authentication hurdle. Recipes cannot be viewed without an account, which should lead to a higher registration rate.
@@ -69,10 +69,10 @@ Furthermore, users have the option of registering for a virtual cooking class. A
 What can not be implemented within the project, just because of lack of time? 
 * Users will not have the possibility to reset the password at first.
 * Excessive filtering options in the recipe overview will be reduced to a minimum for the time being.
-* The number of recipes will probably be 20 - 25 maximum. 
+* The number of recipes will probably be 30 - 40 maximum. 
 * Users will not yet be able to pay online, but a fictitious invoice will be in the mail. 
 
-The scope, in terms of content, will stretch over 9 HTML pages.
+The scope, in terms of content, will stretch over 8 HTML pages.
 * index.html
 * signup.html
 * login.html
@@ -81,7 +81,6 @@ The scope, in terms of content, will stretch over 9 HTML pages.
 * recipes_detail.html
 * cookbook.html
 * workshop.html 
-* 404 page (default django 404 page)
 
 Here, further pages are omitted too due to time constraints. 
 How the individual pages are composed is outlined in the structure section next.
@@ -234,7 +233,18 @@ These include:
 * deleting workshops from the personal reminder section  
 
 
-Users also get feedback on almost all CRUD operations, such as when a comment was left, or a workshop was booked. For small CRUD operations (such as adding dishes to the cookbook), this was initially omitted, as it is more distracting than useful in the flow of action, at least in the current version. However, this may become a feature in the future. 
+Users also get feedback on all CRUD operations and database states.
+This includes: Feedback...
+
+* when a comment was left and is being approved.
+* when a recipe got bookmarked.
+* when a recipe got removed from the cookbook.
+* when the cookbook is empty.
+* when a workshop was booked.
+* when the workshop list is empty.
+
+The approach to the corresponding feedback was different, depending on the context in which the feedback appears. Often variables were queried in template tags to indicate feedback. For the cookbook and the removal of recipes, Django messages were used. Hereby I wanted to show that there are different approaches to give user feedback. 
+
 
 A special feature is also the automatic sending of emails, which was implemented with the help of the built-in send_email function of Django. For this purpose a new gmail account was created especially for ingredients. Down below you can see an example email, which can be improved in the future.
 

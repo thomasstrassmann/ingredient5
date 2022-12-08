@@ -30,7 +30,7 @@ def workshop(request):
             ("Thanks for your reservation on the " + day + " at "
                 + time + ".\n"
                 "We are really looking forward to create a great "
-                "cooking class with you ant the other star chefs. \n"
+                "cooking class with you and the other star chefs. \n"
                 "What you should consider in any case: \n"
                 "Have a fully charged smartphone/tablet ready for the "
                 "appointment. \n"
