@@ -413,12 +413,11 @@ p {
 }
 
 .login-container {
-    background-color:rgba(162,24,199, 0.7);
-    width: 25%;
+    background-color: rgba(162,24,199, 0.7);
+    width: 35%;
     border: 1px solid white;
     border-radius: 10px;
     text-align: center;
-    padding: 5px;
 }
 
 .login-container:hover {
@@ -430,5 +429,8 @@ p {
 .login-container a {
     color: white;
     text-decoration: none;
-    padding: 5%;
+    display: block;
+    width: 100%;
+    font-size: 4vw;
+    height: 100%;
 }

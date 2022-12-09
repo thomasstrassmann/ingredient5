@@ -11,8 +11,8 @@
 
 ## Table of contents
 1. [Introduction](#introduction) 
-2. [Preparation - UX and UXD](#preparation)
-3. [Agile Development](#agile)
+2. [Preparation](#preparation)
+3. [Development](#development)
 4. [Features](#features)
 5. [Testing](#testing)
 6. [Deployment](#deployment) 
@@ -32,7 +32,7 @@ So the goal of Ingredients is to make chefs of all kinds (whether beginners or p
 
 The application has various features / functions, which are explained in more detail in strategy and features.
 
-## Preparation - UX and UXD
+## Preparation
 As mentioned in the introduction, the app is aimed at a broad audience. Many people unfortunately suffer from lack of time and are not able to eat sensibly. Therefore, many people resort to supplements, unhealthy food (mostly fast food), or skip meals altogether. 
 
 Often not only the time to cook is missing, but also the time to even go shopping in the supermarket. Ingredients tries to fill this gap. Simple and delicious meals with a limited fridge are thus possible and excuses regarding unhealthy food should be a thing of the past.
@@ -136,7 +136,7 @@ The app logo was created with the Adobe Express. The corresponding green should 
 
 Google Fonts was used for the typography. The font "Bebas Neue" is used for headlines and titles, the font "Ubuntu" is used for everything else. The icons in the app are also from Google (Google Icons). The icons from Google are not provided via a CDN, but they have been downloaded. 
 
-## Agile Development
+## Development
 
 The entire project was developed in an agile manner. Particularly noteworthy is the sprint board (git hub project), on which the user stories and their status were recorded. For better traceability, the project was set to public. 
 
