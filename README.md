@@ -371,6 +371,11 @@ requests-oauthlib==1.3.1
 sqlparse==0.4.3
 
 
+**Footer**
+
+The footer is only decorative in nature. Since there are no Facebook or Instagram accounts of Ingredients, the value was set to a "#". Otherwise, you could also link the respective pages here and use target="_blank" as a property. 
+
+
 ## Credits
 **Recipe content**
 
