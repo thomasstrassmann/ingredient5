@@ -65,6 +65,8 @@ However, this also means that the other content is behind this authentication hu
 
 After authentication, further functions are available to the user. For example, they can actively search for new recipes (via django generic ListView) and view the recipes in detail. An own cookbook with favorite recipes can then be created via a bookmark function. 
 
+Unlike other cooking sites, you can't publish your own recipes on Ingredients. The creation of recipes is exclusively a service of Ingredients to ensure a certain quality standard. Ingredients should be perceived as a high-quality source of selected recipes (and also on Netflix not everyone can upload his movies).
+
 Furthermore, users have the option of registering for a virtual cooking class. All that is required is to select an email address, date and time (date and time specified in each case). Afterwards, the user automatically receives a confirmation email with an access link and the admin receives an overview of the participants in the backend. 
 
 What can not be implemented within the project, just because of lack of time? 
@@ -219,7 +221,7 @@ Down below, you can see the sprint board in action during development.
 The Ingredients app has many features, which will now be examined in more detail below. 
 
 
-The app has only custom css code, which is around a thousand lines long. Highlights are of course the reponsiveness on all devices, a color effect in the hero image and many media queries. Compared to other websites / apps, responsiveness is even more important in the context of cooking, because people at the stove look on smartphones and tablets, not on desktop computers. Bootstrap was not used, because I personally find the styling with flexbox and grid more pleasant and the html files do not have umpteen div nestings. Bootstrap tends to mix styling and structure. 
+The app has only custom css code, which is around a thousand lines long. Highlights are of course the reponsiveness on all devices, a color effect in the hero image and many media queries (Every now and then a few CSS rulesets are very similar, maybe even the same. This was done on purpose to be able to change the components more flexibly, if necessary). Compared to other websites / apps, responsiveness is even more important in the context of cooking, because people at the stove look on smartphones and tablets, not on desktop computers. Bootstrap was not used, because I personally find the styling with flexbox and grid more pleasant and the html files do not have umpteen div nestings. Bootstrap tends to mix styling and structure. 
 
 Another feature are the present and working CRUD operations that the user can perform in the frontend.
 These include: 
